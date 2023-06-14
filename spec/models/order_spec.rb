@@ -1,5 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe Order, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject {
+    described_class.new(
+      date: Date.today,
+      status: true
+    )
+  }
+    it "is valid with valid attributes" do
+      expect(subject).to be_valid
+    end
+
+    it "is not valid without a date" do
+      subject.date = nil
+      expect(subject).to_not be_valid
+    end
+
+    it "is not valid without a status" do
+      subject.status = nil
+      expect(subject).to_not be_valid
+    end
+ 
 end
