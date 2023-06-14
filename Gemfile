@@ -14,6 +14,7 @@ gem "importmap-rails"
 gem "jbuilder"
 gem 'jquery-rails'
 gem "pg", "~> 1.1"
+gem "sqlite3", "~> 1.4"
 gem "puma", "~> 5.0"
 gem 'rack-cors'
 gem 'sass-rails'
