@@ -1,10 +1,9 @@
 class User < ApplicationRecord
-    validates :name, presence: true
+
+    validates :name, presence: true, length: { maximum: 15 }
     validates :role, presence: true
     validates :status, presence: true
     validates :password, presence: true
   
-    # Opcional: Agrega las asociaciones si corresponde
-    # has_many :orders
-  end
+end
   

@@ -1,0 +1,67 @@
+es:
+  application:
+    list_of: Lista de %{model}
+    new_model: Nuevo %{model}
+    edit_model: Editar %{model}
+    destroy_model: Destruir %{model}
+    create_message: "%{model} creado con exito" 
+    update_message: "%{model} actualizado con exito" 
+    delete_message: "%{model} eliminado con exito" 
+    show: Mostrar
+    edit: Editar
+    save: Guardar
+    delete: Eliminar
+    create: Crear
+    can_not_be_saved: No se pudo guardar
+    select: Seleccione
+    back: Atrás
+  activerecord:
+    attributes:
+      user:
+        name: Nombre de Usuario
+        rol: Rol
+        status: Estado
+        password: Contraseña
+      dish:
+        name: Nombre
+        description: Descripcion
+        price: Precio
+        photo: Fotografia
+        available: Disponibilidad
+        availables:
+          available: Disponible
+          unavailable: No Disponible
+      order:
+        date: Nombre
+        status: 
+          On Time: A Tiempo
+          Late: Sobre Tiempo  
+          Delayed: Demorado
+          Cancelled: Cancelado
+          Delivered: Entregado
+    modules:
+      user:
+        one: Usuario
+        other: Usuarios
+      dish:
+        one: Plato
+        other: Platos
+      order:
+        one: Orden
+        other: Ordenes
+      patient:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: El espacio esta en blanco
+              too_long: Debe de tener un maximo de 10 caracteres
+        dish:
+          attributes:
+            name:
+              blank: El espacio esta en blanco
+        order:
+          attributes:
+            date: 
+              blank: El espacio esta en blanco

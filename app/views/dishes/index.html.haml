@@ -1,29 +1,29 @@
-%h1 Listing dishes
+%p{:style => "color: green"}= notice
+.div.m-4
+  .page.header
+    %h1.mb-4
+      = t('application.list_of', model: t('activerecord.modules.dish.other'))
+    .float-end.pb-4
+      = link_to t('application.create'), new_dish_path, class: "btn btn-primary" 
 
-%table
-  %thead
+%table.table.table-striped
+  %thread
     %tr
-      %th Name
-      %th Description
-      %th Price
-      %th Photo
-      %th Available
+      %th= t('activerecord.attributes.dish.name')
+      %th= t('activerecord.attributes.dish.description')
+      %th= t('activerecord.attributes.dish.price')
+      %th= t('activerecord.attributes.dish.photo')
+      %th= t('activerecord.attributes.dish.available')
       %th
       %th
-      %th
-
   %tbody
     - @dishes.each do |dish|
       %tr
         %td= dish.name
         %td= dish.description
         %td= dish.price
-        %td= dish.photo
-        %td= dish.available
-        %td= link_to 'Show', dish
-        %td= link_to 'Edit', edit_dish_path(dish)
-        %td= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Dish', new_dish_path
+        %td= image_tag dish.photo, width: 100
+        %td= t("activerecord.attributes.dish.availables.#{dish.available}")
+        %td= link_to t('application.show'), dish, class: "btn btn-info"
+        %th= link_to t('application.edit'), edit_dish_path(dish), class: "btn btn-success"
+        %th= button_to t('application.delete'), dish, method: :delete, class: "btn btn-danger"

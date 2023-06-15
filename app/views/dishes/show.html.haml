@@ -1,21 +1,30 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @dish.name
-%p
-  %b Description:
-  = @dish.description
-%p
-  %b Price:
-  = @dish.price
-%p
-  %b Photo:
-  = @dish.photo
-%p
-  %b Available:
-  = @dish.available
+.div.m-4
+    .card
+        .card-body
+            %h5.card-title
+                = t('activerecord.attributes.dish.name')
+            %p.card-text= @dish.name
 
-= link_to 'Edit', edit_dish_path(@dish)
-\|
-= link_to 'Back', dishes_path
+            %h5.card-title
+                = t('activerecord.attributes.dish.description')
+            %p.card-text= @dish.description
+
+            %h5.card-title
+                = t('activerecord.attributes.dish.price')
+            %p.card-text= @dish.price
+
+            %h5.card-title
+                = t('activerecord.attributes.dish.photo')
+            %p.card-text= @dish.photo
+
+            %h5.card-title
+                = t('activerecord.attributes.dish.available')
+            %p.card-text= t("activerecord.attributes.dish.availables.#{@dish.available}")
+            
+.row.mt-4
+    .offset-3.col-3
+        = link_to t('application.back'), dishes_path, class: "btn btn-secondary"
+    .col-3
+        = link_to t('application.edit'), edit_dish_path(@dish), class: "btn btn-success"

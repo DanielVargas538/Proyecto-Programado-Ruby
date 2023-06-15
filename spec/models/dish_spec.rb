@@ -4,12 +4,11 @@ require 'rails_helper'
 
 RSpec.describe Dish, type: :model do
   subject {
-    described_class.new(
-      name: 'Dish Name',
-      description: 'Dish Description',
-      price: 9.99,
-      photo: 'dish.jpg',
-      available: true
+    described_class.new( name: 'Dish Name',
+                          description: 'Dish Description',
+                          price: 9.99,
+                          photo: '#<ActiveStorage::Attached::One:0x00007f4446b267b8>',
+                          available: true
     )
   }
     it "is valid with valid attributes" do
@@ -41,6 +40,4 @@ RSpec.describe Dish, type: :model do
       expect(subject).to_not be_valid
     end
 
-
-  ###end
 end

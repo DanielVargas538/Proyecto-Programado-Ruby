@@ -4,7 +4,7 @@ class CreateDishes < ActiveRecord::Migration[7.0]
       t.string :name
       t.text :description
       t.decimal :price
-      t.string :photo
+      t.binary :photo, limit: 10.megabytes
       t.boolean :available
 
       t.timestamps

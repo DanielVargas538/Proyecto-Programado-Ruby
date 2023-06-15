@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :dashboards
   resources :dishes
   resources :users
   resources :orders
@@ -6,4 +7,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root "dashboards#index"
 end

@@ -4,7 +4,7 @@ RSpec.describe Order, type: :model do
   subject {
     described_class.new(
       date: Date.today,
-      status: true
+      status: 1
     )
   }
     it "is valid with valid attributes" do

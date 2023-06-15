@@ -1,7 +1,8 @@
-%h1 Editing dish
+%h1= t('application.edit_model', model: t('activerecord.modules.dish.one'))
+= render "form", dish: @dish
+%br/
+%div
 
-= render 'form'
-
-= link_to 'Show', @dish
+= link_to t('application.show'), @dish
 \|
-= link_to 'Back', dishes_path
+= link_to t('application.back'), dishes_path
