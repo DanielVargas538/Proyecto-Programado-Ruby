@@ -17,7 +17,7 @@
 
             %h5.card-title
                 = t('activerecord.attributes.dish.photo')
-            %p.card-text= @dish.photo
+            %p.card-text= image_tag @dish.photo, width: 100
 
             %h5.card-title
                 = t('activerecord.attributes.dish.available')
