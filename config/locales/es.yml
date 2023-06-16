@@ -1,5 +1,6 @@
 es:
   application:
+    cruds_available: CRUDs Disponibles
     list_of: Lista de %{model}
     new_model: Nuevo %{model}
     edit_model: Editar %{model}
@@ -19,9 +20,12 @@ es:
     attributes:
       user:
         name: Nombre de Usuario
-        rol: Rol
+        role: Rol
         status: Estado
         password: Contraseña
+      roles:
+          admin: Administrador
+          cook: Cocinero
       dish:
         name: Nombre
         description: Descripcion

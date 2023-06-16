@@ -5,7 +5,6 @@ RSpec.describe User, type: :model do
     described_class.new(
       name: 'Daniel',
       role: 'Admin',
-      status: true,
       password: '123456789'
     )
   }
@@ -22,12 +21,6 @@ RSpec.describe User, type: :model do
       subject.role = nil
       expect(subject).to_not be_valid
     end
-
-    it "is not valid without a status" do
-      subject.status = nil
-      expect(subject).to_not be_valid
-    end
-
     it "is not valid without a password" do
       subject.password = nil
       expect(subject).to_not be_valid

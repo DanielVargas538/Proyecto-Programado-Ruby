@@ -17,7 +17,7 @@ class DishesController < ApplicationController
     @dish = Dish.new(dish_params)
 
     if @dish.save
-      redirect_to dish_url(@dish), notice: "Dish was successfully created." 
+      redirect_to dish_url(@dish), notice: t('application.create_message', model: t('activerecord.modules.dish.one')) 
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class DishesController < ApplicationController
 
   def update
     if @dish.update(dish_params)
-      redirect_to dish_url(@dish), notice: "Dish was successfully updated." 
+      redirect_to dish_url(@dish), notice: t('application.update_message', model: t('activerecord.modules.dish.one'))  
     else
       render :edit, status: :unprocessable_entity 
     end
@@ -33,7 +33,7 @@ class DishesController < ApplicationController
 
   def destroy
     @dish.destroy
-      redirect_to dishes_url, notice: "Dish was successfully destroyed." 
+      redirect_to dishes_url, notice: t('application.delete_message', model: t('activerecord.modules.dish.one'))  
   end
 
   private

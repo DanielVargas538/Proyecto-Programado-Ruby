@@ -1,27 +1,25 @@
-%h1 Listing users
+%p{:style => "color: green"}= notice
+.div.m-4
+  .page.header
+    %h1.mb-4
+      = t('application.list_of', model: t('activerecord.modules.user.other'))
+    .float-end.pb-4
+      = link_to t('application.create'), new_user_path, class: "btn btn-primary"
 
-%table
-  %thead
+%table.table.table-striped
+  %thread
     %tr
-      %th Name
-      %th Role
-      %th Status
-      %th Password
+      %th= t('activerecord.attributes.user.name')
+      %th= t('activerecord.attributes.user.role')
+      %th= t('activerecord.attributes.user.password')
       %th
       %th
-      %th
-
   %tbody
     - @users.each do |user|
       %tr
         %td= user.name
-        %td= user.role
-        %td= user.status
+        %td= t("activerecord.attributes.roles.#{user.role}")
         %td= user.password
-        %td= link_to 'Show', user
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New User', new_user_path
+        %td= link_to t('application.show'), user, class: "btn btn-info"
+        %th= link_to t('application.edit'), edit_user_path(user), class: "btn btn-success"
+        %th= button_to t('application.delete'), user, method: :delete, class: "btn btn-danger"

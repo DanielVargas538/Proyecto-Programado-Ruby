@@ -2,7 +2,9 @@
   .col-6
     .div.m-4.mb-4
       %h1
-        = t('application.cruds-available')
+        = t('application.cruds_available')
 
 .float-start.m-4
   = link_to t('activerecord.modules.dish.other'), dishes_path, class: 'btn btn-danger'
+.float-start.m-4
+  = link_to t('activerecord.modules.user.other'), users_path, class: 'btn btn-danger'  

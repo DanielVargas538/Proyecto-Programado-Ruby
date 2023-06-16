@@ -1,18 +1,23 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @user.name
-%p
-  %b Role:
-  = @user.role
-%p
-  %b Status:
-  = @user.status
-%p
-  %b Password:
-  = @user.password
+.div.m-4
+  .card
+    .card-body
+      %h5.card-title
+        = t('activerecord.attributes.user.name')
+      %p.card-text= @user.name
 
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+      %h5.card-title
+        = t('activerecord.attributes.user.role')
+      %p.card-text= t("activerecord.attributes.roles.#{@user.role}")
+
+
+      %h5.card-title
+        = t('activerecord.attributes.user.password')
+      %p.card-text= @user.password
+
+.row.mt-4
+  .offset-3.col-3
+    = link_to t('application.back'), users_path, class: "btn btn-secondary"
+  .col-3
+    = link_to t('application.edit'), edit_user_path(@user), class: "btn btn-success"
