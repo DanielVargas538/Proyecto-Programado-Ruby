@@ -37,7 +37,8 @@ es:
           unavailable: No Disponible
       order:
         date: Nombre
-        status: 
+        state: Estado
+        status2:
           On Time: A Tiempo
           Late: Sobre Tiempo  
           Delayed: Demorado

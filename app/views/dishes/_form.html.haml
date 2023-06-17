@@ -28,6 +28,7 @@
     = f.label :photo, class: "form-label required"
   .div.w-25
     = f.file_field :photo, accept: 'image/*', class: "form-control"
+    = image_tag @dish.photo, width: 80 if @dish.photo.present? 
 
   .form-group.mx-4
     = f.label :available, class: "form-label required"

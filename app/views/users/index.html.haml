@@ -3,6 +3,8 @@
   .page.header
     %h1.mb-4
       = t('application.list_of', model: t('activerecord.modules.user.other'))
+    .br 
+      = link_to 'Volver al menu', root_path, class: "btn btn-primary"
     .float-end.pb-4
       = link_to t('application.create'), new_user_path, class: "btn btn-primary"
 
