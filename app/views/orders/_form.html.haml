@@ -5,15 +5,22 @@
         %div{style: 'color: red'}
           %h2
             = t('application.can_not_be_saved')
-        %ul
-          - @order.errors.full_messages.each do |message|
-            %li= message
+          %ul
+            - @order.errors.full_messages.each do |message|
+              %li= message
 
-  .field
-    = f.label :date
-    = f.date_field :date
-  .field
-    = f.label :status
-    = f.check_box :status
-  .actions
-    = f.submit 'Save'
+  .form-group.mx-4
+    = f.label :date, class: "form-label required"
+  .div.w-25
+    = f.date_field :date, autofocus: true, class: "form-control"
+    
+  .form-group.mx-4
+    = f.label :state, class: "form-label required"
+  .div.w-25
+    = f.select(:state, options_for_select(status, @order.state), {prompt: t('application.select')}, class: "form-control")
+
+  .row.mt-4
+    .col-3
+      = link_to t('application.back'), orders_path, class: "btn  btn-secondary btn-block"
+    .col-3
+      = button_tag t('application.save'), class: "btn btn-primary btn-block"

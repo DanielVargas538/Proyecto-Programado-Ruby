@@ -4,7 +4,7 @@ RSpec.describe Order, type: :model do
   subject {
     described_class.new(
       date: Date.today,
-      status: 1
+      state: 1
     )
   }
     it "is valid with valid attributes" do
@@ -16,8 +16,8 @@ RSpec.describe Order, type: :model do
       expect(subject).to_not be_valid
     end
 
-    it "is not valid without a status" do
-      subject.status = nil
+    it "is not valid without a state" do
+      subject.state = nil
       expect(subject).to_not be_valid
     end
  

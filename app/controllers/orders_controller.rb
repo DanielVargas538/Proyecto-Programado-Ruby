@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to order_url(@order), notice: "Order was successfully created."
     else
-      render :new, status: :unprocessable_entity 
+      render :new, state: :unprocessable_entity 
     end
   end
 
@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
     if @order.update(order_params)
       redirect_to order_url(@order), notice: "Order was successfully updated."
     else
-      render :edit, status: :unprocessable_entity 
+      render :edit, state: :unprocessable_entity 
     end
   end
 
@@ -43,6 +43,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:date, :status)
+      params.require(:order).permit(:date, :state, :client_id)
     end
 end

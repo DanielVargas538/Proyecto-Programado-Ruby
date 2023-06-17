@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_15_210245) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_17_020214) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_210245) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "clients", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "phone"
+    t.string "user_name"
+    t.string "password"
+    t.string "email"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "dishes", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -54,7 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_210245) do
 
   create_table "orders", force: :cascade do |t|
     t.date "date"
-    t.integer "status"
+    t.integer "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,8 +75,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_210245) do
     t.string "name"
     t.string "role"
     t.string "password"
+    t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_users_on_client_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

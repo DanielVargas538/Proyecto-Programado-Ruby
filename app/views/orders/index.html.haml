@@ -19,5 +19,5 @@
     - @orders.each do |order|
       %tr
         %td= order.date
-        %td= order.status
+        %td= t("activerecord.attributes.order.status.#{order.state}")
         %td= link_to t('application.show'), order, class: "btn btn-info"

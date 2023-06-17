@@ -38,7 +38,7 @@ es:
       order:
         date: Nombre
         state: Estado
-        status2:
+        status:
           On Time: A Tiempo
           Late: Sobre Tiempo  
           Delayed: Demorado
