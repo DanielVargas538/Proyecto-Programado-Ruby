@@ -1,5 +1,4 @@
-%h1 New order
-
-= render 'form'
-
-= link_to 'Back', orders_path
+%h1= t('application.new_model', model: t('activerecord.modules.order.one'))
+= render "form", order: @order
+%br/
+%div

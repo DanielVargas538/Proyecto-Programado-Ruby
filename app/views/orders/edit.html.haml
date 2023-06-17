@@ -1,8 +1,7 @@
-%h1= t('application.edit_model', model: t('activerecord.modules.order.one'))
-= render "form", order: @order
-%br/
-%div
+%h1 Editing order
 
-= link_to t('application.show'), @order
+= render 'form'
+
+= link_to 'Show', @order
 \|
-= link_to t('application.back'), orders_path
+= link_to 'Back', orders_path

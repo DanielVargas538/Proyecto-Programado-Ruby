@@ -1,11 +1,12 @@
 class Client < ApplicationRecord
     has_many :orders
 
-    validate :first_name,presence: true
-    validate :last_name,presence: true
-    validate :phone,presence: true
-    validate :user_name,presence: true
-    validate :email,presence: true,format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
-    validate :password,presence: true,length: { minimum: 6 }
+    validates :first_name,presence: true
+    validates :last_name,presence: true
+    validates :phone,presence: true
+    validates :user_name,presence: true
+    validates :email,presence: true,format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
+    validates :password,presence: true,length: { minimum: 6 }
+    validates :address, presence: true
 
 end

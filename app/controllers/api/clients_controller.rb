@@ -1,4 +1,6 @@
+module Api
 class ClientsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_client, only: %i[ show edit update destroy ]
 
   def index
@@ -19,7 +21,7 @@ class ClientsController < ApplicationController
     respond_to do |format|
       if @client.save
         format.html { redirect_to client_url(@client), notice: "Client was successfully created." }
-        format.json { render :show, status: :created, location: @client }
+        format.json { render 'api/clients/show', status: :created, location: @client }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @client.errors, status: :unprocessable_entity }
@@ -31,7 +33,7 @@ class ClientsController < ApplicationController
     respond_to do |format|
       if @client.update(client_params)
         format.html { redirect_to client_url(@client), notice: "Client was successfully updated." }
-        format.json { render :show, status: :ok, location: @client }
+        format.json { format.json { render 'api/clients/show', status: :ok}  }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @client.errors, status: :unprocessable_entity }
@@ -44,7 +46,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to clients_url, notice: "Client was successfully destroyed." }
-      format.json { head :no_content }
+      format.json { render 'api/clients/index', status: :ok }
     end
   end
 
@@ -57,4 +59,5 @@ class ClientsController < ApplicationController
     def client_params
       params.require(:client).permit(:first_name, :last_name, :phone, :user_name, :password, :email, :address)
     end
+end
 end

@@ -39,11 +39,11 @@ es:
         date: Nombre
         state: Estado
         status:
-          On Time: A Tiempo
-          Late: Sobre Tiempo  
-          Delayed: Demorado
-          Cancelled: Cancelado
-          Delivered: Entregado
+          on_time: A Tiempo
+          late: Sobre Tiempo  
+          delayed: Demorado
+          cancelled: Cancelado
+          delivered: Entregado
     modules:
       user:
         one: Usuario

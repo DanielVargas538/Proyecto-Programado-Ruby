@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  resources :clients
+  resources :orders
   resources :dashboards
   resources :dishes
   resources :users
-  resources :orders
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  scope module: :api do
+    resources :clients
+  end
+
   root "dashboards#index"
 end

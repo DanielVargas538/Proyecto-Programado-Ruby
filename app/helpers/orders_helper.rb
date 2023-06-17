@@ -1,7 +1,7 @@
 module OrdersHelper
 
-    def status
-        Order.status.keys.map do |state|
+    def states
+        Order.states.keys.map do |state|
             [t("activerecord.attributes.order.status.#{state}"), state]
         end
     end
