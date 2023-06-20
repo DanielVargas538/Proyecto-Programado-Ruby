@@ -9,4 +9,20 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   %body
-    = yield
+
+    - if user_signed_in?  # Verificar si el usuario ha iniciado sesión
+      = render "layouts/header"
+      .sidebar
+        = render "layouts/sidebar"
+    - else
+      = yield 
+
+
+
+
+
+
+
+
+
+    

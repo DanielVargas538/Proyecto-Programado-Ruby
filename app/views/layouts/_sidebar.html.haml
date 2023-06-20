@@ -1,0 +1,20 @@
+.container-fluid
+  .row.flex-nowrap
+    .col-auto.col-md-3.col-xl-2.px-sm-2.px-0.bg-dark
+      .d-flex.flex-column.align-items-center.align-items-sm-start.px-3.pt-2.text-white.min-vh-100
+        %span.fs-5.d-none.d-sm-inline Menu 
+        %ul#menu.nav.nav-pills.flex-column.mb-sm-auto.mb-0.align-items-center.align-items-sm-start
+          %li.nav-items
+            %i.fs-4.bi-house
+            = link_to "Orders", orders_path
+          %li
+          %li.nav-item
+            %i.fs-4.bi-house
+            = link_to "Dishes", dishes_path
+          %li
+          %li.nav-item
+            %i.fs-4.bi-house
+            = link_to "Clients", clients_path
+          %li
+    .col.py-3#content
+      = yield
