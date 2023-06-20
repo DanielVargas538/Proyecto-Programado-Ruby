@@ -1,6 +1,8 @@
+
 es:
   application:
     cruds_available: CRUDs Disponibles
+    logout: Cerrar Sesion
     list_of: Lista de %{model}
     new_model: Nuevo %{model}
     edit_model: Editar %{model}
@@ -16,16 +18,39 @@ es:
     can_not_be_saved: No se pudo guardar
     select: Seleccione
     back: Atrás
+    sign_up: Registrarse
+    log_in: Iniciar Sesion
   activerecord:
     attributes:
       user:
-        name: Nombre de Usuario
+        name: Nombre Completo
         role: Rol
-        status: Estado
+        email: Correo Electronico
         password: Contraseña
-      roles:
-          admin: Administrador
-          cook: Cocinero
+        password_confirmation: Confirmación de la contraseña
+        confirmation_sent_at: Confirmación enviada a
+        confirmation_token: Código de confirmación
+        confirmed_at: Confirmado en
+        created_at: Creado en
+        current_password: Contraseña actual
+        current_sign_in_at: Fecha del ingreso actual
+        current_sign_in_ip: IP del ingreso actual
+        encrypted_password: Contraseña cifrada
+        failed_attempts: Intentos fallidos
+        last_sign_in_at: Fecha del último ingreso
+        last_sign_in_ip: IP del último inicio
+        locked_at: Fecha de bloqueo
+        remember_created_at: Fecha de 'Recordarme'
+        remember_me: Recordarme
+        reset_password_sent_at: Fecha de envío de código para contraseña
+        reset_password_token: Código para restablecer contraseña
+        sign_in_count: Cantidad de ingresos
+        unconfirmed_email: Email no confirmado
+        unlock_token: Código de desbloqueo
+        updated_at: Actualizado en
+        roles:
+            administrator: Administrador
+            cook: Cocinero
       dish:
         name: Nombre
         description: Descripcion
@@ -61,7 +86,16 @@ es:
           attributes:
             name:
               blank: El espacio esta en blanco
-              too_long: Debe de tener un maximo de 10 caracteres
+              too_long: Debe de tener un maximo de 30 caracteres
+            role:
+              blank: El espacio esta en blanco
+            email:
+              blank: El espacio esta en blanco
+            password:
+              blank: El espacio esta en blanco
+              taken: El correo ya se encuentra registrado
+            password_confirmation:
+              blank: El espacio esta en blanco
         dish:
           attributes:
             name:
@@ -70,3 +104,4 @@ es:
           attributes:
             date: 
               blank: El espacio esta en blanco
+    

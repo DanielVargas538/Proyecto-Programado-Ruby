@@ -7,6 +7,7 @@ gem "rails", "~> 7.0.5"
 
 gem 'bootstrap'
 gem "bootsnap", require: false
+gem 'devise'
 gem 'font-awesome-sass', '~> 6.4.0'
 gem 'haml'
 gem 'httparty'
