@@ -20,7 +20,7 @@ module ProyectRuby
     # config.eager_load_paths << Rails.root.join("extras")
     
     I18n.load_path += Dir[Rails.root.join("config","locales","*.{yml}")]
-    I18n.default_locale = [:es]
+    I18n.default_locale = :es
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
