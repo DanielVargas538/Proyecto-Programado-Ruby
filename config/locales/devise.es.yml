@@ -2,11 +2,21 @@
 
 es:
   devise:
+    buttons:
+      log_in: "Iniciar sesión"
+      sign_in: "Registrarse"
+      forgot_password: "Olvido la contraseña?"
+      reset_password: "Enviarme instrucciones para restablecer contraseña"
     confirmations:
       confirmed: "Tu cuenta ya ha sido confirmada."
       confirmed_and_signed_in: "Tu cuenta ya ha sido confirmada. Has sido identificado."
       send_instructions: "Recibirás un correo electrónico en unos minutos con instrucciones sobre cómo restablecer tu contraseña."
       send_paranoid_instructions: "Si tu correo electrónico existe en nuestra base de datos recibirás un correo electrónico en unos minutos con instrucciones sobre cómo reiniciar tu contraseña."
+    question:
+      confirmation_instruction: "¿No has recibido instrucciones de confirmación?"
+      unlock_instruction: "¿No recibió instrucciones de desbloqueo?"
+    form:
+      forgot_password: "¿Olvidó su contraseña?"
     failure:
       already_authenticated: "Ya estás identificado."
       inactive: "Tu cuenta aún no ha sido activada."
@@ -26,7 +36,7 @@ es:
       unlock_instructions:
         subject: "Instrucciones de desbloqueo"
     omniauth_callbacks:
-      failure: "No se te pudo autorizar de %{kind} debido a \"%{reason}\"."
+      failure: 'No se te pudo autorizar de %{kind} debido a "%{reason}".'
       success: "Identificado correctamente de %{kind}."
     passwords:
       no_token: "No puedes acceder a esta página sino es por medio de un enlace para restablecer contraseña. Si accediste desde el enlace para restablecer la contraseña, asegúrate de que la URL esté completa."
@@ -56,6 +66,7 @@ es:
       expired: "ha expirado, por favor vuelve a solicitarla."
       not_found: "no se encontró."
       not_locked: "no estaba bloqueado."
+      characters_minimum: "caracteres minimos"
       not_saved:
-        one: "1 error impidió que este Usuario fuese guardado:"
+        one: "Ha ocurrido un error:"
         other: "%{count} errores impidieron que este Usuario fuese guardado:"

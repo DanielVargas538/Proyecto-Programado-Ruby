@@ -26,7 +26,8 @@
   .form-group
     = f.label :password, class: "form-label required"
     - if @minimum_password_length
-      (#{@minimum_password_length} characters minimum)
+      = " (#{@minimum_password_length} #{t('errors.messages.characters_minimum')})"
+
   .div.w-25
     = f.password_field :password, autocomplete: "new-password", class: "form-control"
 
@@ -38,7 +39,7 @@
   .actions
   .row.mt-4
     .col-3
-      = button_tag "Sign up", type: "submit", class: "btn btn-danger btn-block btn-submit"
+      = button_tag t('devise.buttons.sign_in'), type: "submit", class: "btn btn-danger btn-block btn-submit"
     .offset-5.col-3
       = render "users/shared/links"
 
