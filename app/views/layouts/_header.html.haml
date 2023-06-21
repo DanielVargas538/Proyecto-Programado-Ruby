@@ -4,6 +4,6 @@
   = link_to root_path, class: "navbar-brand h1 home" do
     %i.fa.fa-home
   #navbarSupportedContent.collapse.navbar-collapse
-  %form.form-inline
-    = button_tag t('application.sign_off'), class: "btn btn-danger btn-block sign_off"
+  .div
+    = button_to t('application.logout'), destroy_user_session_path, method: :delete , class: "btn btn-danger sign_off"
 

@@ -7,11 +7,11 @@
         %ul.nav.flex-column
           %div.d-sm-inline{class: 'Menu'} Menu
           .li{class: 'Content-col'}
-            = link_to "Orders", orders_path, class: 'Content'
+            = link_to t('activerecord.modules.order.other'), orders_path, class: 'Content'
           .li{class: 'Content-col'}
-            = link_to "Dishes", dishes_path, class: 'Content'
+            = link_to t('activerecord.modules.dish.other'), dishes_path, class: 'Content'
           .li{class: 'Content-col'}
-            = link_to "Clients", clients_path, class: 'Content'
+            = link_to t('activerecord.modules.client.other'), manage_clients_path, class: 'Content'
         
     .col.py-3#content
       = yield

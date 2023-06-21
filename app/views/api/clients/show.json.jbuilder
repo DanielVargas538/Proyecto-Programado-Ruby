@@ -5,4 +5,5 @@ json.client do
     json.address @client.address
     json.user_name @client.user_name
     json.password @client.password
+    json.locked @client.locked
 end

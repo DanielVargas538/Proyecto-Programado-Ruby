@@ -8,6 +8,7 @@ class CreateClients < ActiveRecord::Migration[7.0]
       t.string :password
       t.string :email
       t.string :address
+      t.boolean :locked
 
       t.timestamps
     end

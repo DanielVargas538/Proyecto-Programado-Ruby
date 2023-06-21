@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users , path_names: { sign_in: 'login', 
     sign_out: 'logout', 
     password: 'secret', 
@@ -8,8 +9,8 @@ Rails.application.routes.draw do
     sign_up: 'sign_up'}
 
   resources :orders
-  resources :dashboards
   resources :dishes
+  resources :manage_clients
 
   scope module: :api do
     resources :clients

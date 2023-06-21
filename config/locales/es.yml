@@ -21,6 +21,7 @@ es:
     sign_up: Registrarse
     log_in: Iniciar Sesion
     sign_off: Cerrar Sesion
+    block: Bloquear
   activerecord:
     attributes:
       user:
@@ -70,6 +71,14 @@ es:
           delayed: Demorado
           cancelled: Cancelado
           delivered: Entregado
+      client:
+        first_name: Nombre
+        last_name:  Apellido
+        phone: Telefono
+        user_name: Nombre de Usuario
+        password: Contraseña
+        email: Email
+        address: Direccion
     modules:
       user:
         one: Usuario
@@ -80,7 +89,9 @@ es:
       order:
         one: Orden
         other: Ordenes
-      patient:
+      client:
+        one: Cliente
+        other: Clientes
     errors:
       models:
         user:

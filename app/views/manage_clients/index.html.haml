@@ -1,0 +1,30 @@
+%p{:style => "color: green"}= notice
+.div.m-4
+  .page.header
+    %h1.mb-4
+      = t('application.list_of', model: t('activerecord.modules.client.other'))
+
+%table.table.table-striped
+  %thread
+    %tr
+      %th= t('activerecord.attributes.client.first_name')
+      %th= t('activerecord.attributes.client.last_name')
+      %th= t('activerecord.attributes.client.user_name')
+      %th= t('activerecord.attributes.client.password')
+      %th= t('activerecord.attributes.client.email')
+      %th= t('activerecord.attributes.client.address')
+      %th= t('activerecord.attributes.client.locked')
+      %th
+      %th
+  %tbody
+    - @clients.each do |client|
+      %tr
+        %td= client.first_name
+        %td= client.last_name
+        %td= client.user_name
+        %td= client.password
+        %td= client.email
+        %td= client.address
+        %td= client.locked
+        %td= submit_tag t('application.block'), class: "btn btn-danger"
+

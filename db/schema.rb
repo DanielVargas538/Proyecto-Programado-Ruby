@@ -50,6 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_20_041816) do
     t.string "password"
     t.string "email"
     t.string "address"
+    t.boolean "locked"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
