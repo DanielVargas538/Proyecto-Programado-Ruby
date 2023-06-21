@@ -1,8 +1,9 @@
-%nav.navbar.navbar-dark.bg-dark
-  = link_to root_path, class: "navbar-brand mb-0 h1" do
-    %i.fa.fa-home{style: "margin-left: 100px;"}
+= stylesheet_link_tag 'header', media: 'all', 'data-turbolinks-track': 'reload'
+
+%nav.navbar.navbar-light{class: 'bar'}
+  = link_to root_path, class: "navbar-brand h1 home" do
+    %i.fa.fa-home
   #navbarSupportedContent.collapse.navbar-collapse
- 
   %form.form-inline
-    = button_tag "Sign Off", class: "btn btn-secondary btn-block", style: "margin-right: 25px;"
+    = button_tag t('application.sign_off'), class: "btn btn-danger btn-block sign_off"
 
