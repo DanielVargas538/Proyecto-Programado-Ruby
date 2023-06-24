@@ -4,19 +4,22 @@
     %h1.mb-4
       = t('application.list_of', model: t('activerecord.modules.order.other'))
 
-%table.table.table-striped
-  %thread
-    %tr
-      %th= t('activerecord.attributes.order.date')
-      %th= t('activerecord.attributes.order.state')
-      %th= t('activerecord.attributes.client.first_name') + ' ' + t('activerecord.modules.client.one')
-      %th= t('activerecord.attributes.client.address')
-      %th= t('activerecord.attributes.client.phone')
-  %tbody
-    - @orders.each do |order|
+  = search_form_for @q do |f|
+    = f.label :date_cont, t('activerecord.attributes.order.date')
+    = f.search_field :date_cont
+  %table.table.table-striped
+    %thead
       %tr
-        %td= order.date
-        %td= t("activerecord.attributes.order.status.#{order.state}")
-        %td= "#{order.client.first_name} #{order.client.last_name}"
-        %td= order.client.address
-        %td= order.client.phone
+        %th= t('activerecord.attributes.order.date')
+        %th= t('activerecord.attributes.order.state')
+        %th= t('activerecord.attributes.client.first_name') + ' ' + t('activerecord.modules.client.one')
+        %th= t('activerecord.attributes.client.address')
+        %th= t('activerecord.attributes.client.phone')
+    %tbody
+      - @manage_orders.each do |order|
+        %tr
+          %td= order.date
+          %td= t("activerecord.attributes.order.status.#{order.state}")
+          %td= "#{order.client.first_name} #{order.client.last_name}"
+          %td= order.client.address
+          %td= order.client.phone

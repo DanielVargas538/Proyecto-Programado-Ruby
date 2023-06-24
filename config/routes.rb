@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :manage_users
+  
   resources :manage_dishes
   resources :manage_orders
   resources :manage_clients
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
     resources :clients
     resources :orders
     resources :dishes
+    resources :user_logs
   end
 
   root "dashboards#index"

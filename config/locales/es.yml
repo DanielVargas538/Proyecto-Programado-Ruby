@@ -89,6 +89,15 @@ es:
         availables:
           available: Disponible
           unavailable: No Disponible
+      manage_user:
+        name: Nombre Completo
+        role: Rol
+        email: Correo Electronico
+        password: Contraseña
+        password_confirmation: Confirmación de la contraseña
+        roles:
+            administrator: Administrador
+            cook: Cocinero
     modules:
       user:
         one: Usuario
@@ -105,6 +114,9 @@ es:
       manage_dish:
         one: Administrador - Plato
         other: Administrador - Platos
+      manage_user:
+        one: Administrador - Usuario
+        other: Administrador - Usuarios
     errors:
       models:
         user:
@@ -148,5 +160,19 @@ es:
             photo:
               blank: El espacio esta en blanco
             available:
+              blank: El espacio esta en blanco
+        manage_user:
+          attributes:
+            name:
+              blank: El espacio esta en blanco
+              too_long: Debe de tener un maximo de 30 caracteres
+            role:
+              blank: El espacio esta en blanco
+            email:
+              blank: El espacio esta en blanco
+            password:
+              blank: El espacio esta en blanco
+              taken: El correo ya se encuentra registrado
+            password_confirmation:
               blank: El espacio esta en blanco
     

@@ -13,10 +13,8 @@
   .div.w-25
     = f.text_field :name, autofocus: true, class: "form-control"
   
-  .form-group
-    = f.label :role, class: "form-label required"
-  .div.w-25
-    = f.select(:role, options_for_select(roles, @user.role), {prompt: t('application.select')}, class: "form-control")
+
+    = f.hidden_field :role, value: true
 
   .form-group
     = f.label :email, class: "form-label required"
