@@ -63,8 +63,9 @@ es:
           available: Disponible
           unavailable: No Disponible
       order:
-        date: Nombre
+        date: Fecha
         state: Estado
+        client: Cliente
         status:
           on_time: A Tiempo
           late: Sobre Tiempo  
@@ -79,6 +80,15 @@ es:
         password: Contraseña
         email: Email
         address: Direccion
+      manage_dish:
+        name: Nombre
+        description: Descripcion
+        price: Precio
+        photo: Fotografia
+        available: Disponibilidad
+        availables:
+          available: Disponible
+          unavailable: No Disponible
     modules:
       user:
         one: Usuario
@@ -92,6 +102,9 @@ es:
       client:
         one: Cliente
         other: Clientes
+      manage_dish:
+        one: Administrador - Plato
+        other: Administrador - Platos
     errors:
       models:
         user:
@@ -110,10 +123,30 @@ es:
               blank: El espacio esta en blanco
         dish:
           attributes:
-            name:
+            name: 
+              blank: El espacio esta en blanco
+            description:
+              blank: El espacio esta en blanco
+            price:
+              blank: El espacio esta en blanco
+            photo:
+              blank: El espacio esta en blanco
+            available:
               blank: El espacio esta en blanco
         order:
           attributes:
             date: 
+              blank: El espacio esta en blanco
+        manage_dish:
+          attributes:
+            name: 
+              blank: El espacio esta en blanco
+            description:
+              blank: El espacio esta en blanco
+            price:
+              blank: El espacio esta en blanco
+            photo:
+              blank: El espacio esta en blanco
+            available:
               blank: El espacio esta en blanco
     

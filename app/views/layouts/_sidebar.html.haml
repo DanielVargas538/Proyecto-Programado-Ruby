@@ -7,9 +7,9 @@
         %ul.nav.flex-column
           %div.d-sm-inline{class: 'Menu'} Menu
           .li{class: 'Content-col'}
-            = link_to t('activerecord.modules.order.other'), orders_path, class: 'Content'
+            = link_to t('activerecord.modules.order.other'), manage_orders_path, class: 'Content'
           .li{class: 'Content-col'}
-            = link_to t('activerecord.modules.dish.other'), dishes_path, class: 'Content'
+            = link_to t('activerecord.modules.dish.other'),  manage_dishes_path, class: 'Content'
           .li{class: 'Content-col'}
             = link_to t('activerecord.modules.client.other'), manage_clients_path, class: 'Content'
         

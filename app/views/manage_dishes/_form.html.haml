@@ -1,12 +1,12 @@
-= form_for @dish, validate: true, html: { multipart: true } do |f|
-  - if @dish.errors.any?
+= form_for @manage_dish, validate: true, html: { multipart: true } do |f|
+  - if @manage_dish.errors.any?
     .card.mx-4
       .card-body
         %div{style: 'color: red'}
           %h2
             = t('application.can_not_be_saved')
           %ul
-            - @dish.errors.full_messages.each do |message|
+            - @manage_dish.errors.full_messages.each do |message|
               %li= message
 
   .form-group.mx-4
@@ -28,15 +28,15 @@
     = f.label :photo, class: "form-label required"
   .div.w-25
     = f.file_field :photo, accept: 'image/*', class: "form-control"
-    = image_tag @dish.photo, width: 80 if @dish.photo.present? 
+    = image_tag @manage_dish.photo, width: 80 if @manage_dish.photo.present? 
 
   .form-group.mx-4
     = f.label :available, class: "form-label required"
   .div.w-25
-    = f.select(:available, options_for_select(availables, @dish.available), {prompt: t('application.select')}, class: "form-control")
+    = f.select(:available, options_for_select(availables, @manage_dish.available), {prompt: t('application.select')}, class: "form-control")
     
   .row.mt-4
     .col-3
-      = link_to t('application.back'), dishes_path, class: "btn  btn-secondary btn-block"
+      = link_to t('application.back'), manage_dishes_path, class: "btn  btn-secondary btn-block"
     .col-3
       = button_tag t('application.save'), class: "btn btn-primary btn-block"

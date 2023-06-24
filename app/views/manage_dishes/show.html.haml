@@ -5,26 +5,26 @@
         .card-body
             %h5.card-title
                 = t('activerecord.attributes.dish.name')
-            %p.card-text= @dish.name
+            %p.card-text= @manage_dish.name
 
             %h5.card-title
                 = t('activerecord.attributes.dish.description')
-            %p.card-text= @dish.description
+            %p.card-text= @manage_dish.description
 
             %h5.card-title
                 = t('activerecord.attributes.dish.price')
-            %p.card-text= @dish.price
+            %p.card-text= @manage_dish.price
 
             %h5.card-title
                 = t('activerecord.attributes.dish.photo')
-            %p.card-text= image_tag @dish.photo, width: 100
+            %p.card-text= image_tag @manage_dish.photo, width: 100
 
             %h5.card-title
                 = t('activerecord.attributes.dish.available')
-            %p.card-text= t("activerecord.attributes.dish.availables.#{@dish.available}")
+            %p.card-text= t("activerecord.attributes.dish.availables.#{@manage_dish.available}")
             
 .row.mt-4
     .offset-3.col-3
-        = link_to t('application.back'), dishes_path, class: "btn btn-secondary"
+        = link_to t('application.back'), manage_dishes_path, class: "btn btn-secondary"
     .col-3
-        = link_to t('application.edit'), edit_dish_path(@dish), class: "btn btn-success"
+        = link_to t('application.edit'), edit_manage_dish_path(@manage_dish), class: "btn btn-success"

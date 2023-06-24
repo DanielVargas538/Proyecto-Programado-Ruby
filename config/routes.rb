@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :manage_dishes
+  resources :manage_orders
+  resources :manage_clients
+
   devise_for :users , path_names: { sign_in: 'login', 
     sign_out: 'logout', 
     password: 'secret', 
@@ -8,12 +12,10 @@ Rails.application.routes.draw do
     registration: 'register', 
     sign_up: 'sign_up'}
 
-  resources :orders
-  resources :dishes
-  resources :manage_clients
-
   scope module: :api do
     resources :clients
+    resources :orders
+    resources :dishes
   end
 
   root "dashboards#index"

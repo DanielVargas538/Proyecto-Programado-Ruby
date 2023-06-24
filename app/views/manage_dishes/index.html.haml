@@ -1,0 +1,29 @@
+%p{:style => "color: green"}= notice
+.div.m-4
+  .page.header
+    %h1.mb-4
+      = t('application.list_of', model: t('activerecord.modules.manage_dish.other'))
+    .float-end.pb-4
+      = link_to t('application.create'), new_manage_dish_path, class: "btn btn-primary" 
+
+%table.table.table-striped
+  %thread
+    %tr
+      %th= t('activerecord.attributes.manage_dish.name')
+      %th= t('activerecord.attributes.manage_dish.description')
+      %th= t('activerecord.attributes.manage_dish.price')
+      %th= t('activerecord.attributes.manage_dish.photo')
+      %th= t('activerecord.attributes.manage_dish.available')
+      %th
+      %th
+  %tbody
+    - @manage_dishes.each do |manage_dish|
+      %tr
+        %td= manage_dish.name
+        %td= manage_dish.description
+        %td= manage_dish.price
+        %td= image_tag(manage_dish.photo, width: 100) if manage_dish.photo.present?
+        %td= t("activerecord.attributes.manage_dish.availables.#{manage_dish.available}")
+        %td= link_to t('application.show'), manage_dish, class: "btn btn-info"
+        %th= link_to t('application.edit'), edit_manage_dish_path(manage_dish), class: "btn btn-success"
+        %th= button_to t('application.delete'), manage_dish, method: :delete, class: "btn btn-danger"

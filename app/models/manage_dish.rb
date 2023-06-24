@@ -1,4 +1,4 @@
-class Dish < ApplicationRecord
+class ManageDish < ApplicationRecord
     self.table_name = "dishes"
     has_one_attached :photo
 
@@ -7,8 +7,7 @@ class Dish < ApplicationRecord
     validates :price, presence: true
     validates :photo, presence: true
     validates :available, presence: true
-  
+
     enum available: { 'unavailable': false, 'available': true }
 
-    
 end

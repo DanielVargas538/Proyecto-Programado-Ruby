@@ -43,7 +43,6 @@ class ClientsController < ApplicationController
       @client = Client.find(params[:id])
     end
 
-
     def client_params
       params.require(:client).permit(:first_name, :last_name, :phone, :user_name, :password, :email, :address, :locked)
     end

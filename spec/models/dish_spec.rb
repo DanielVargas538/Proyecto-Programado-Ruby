@@ -1,5 +1,3 @@
-# spec/models/dish_spec.rb
-
 require 'rails_helper'
 
 RSpec.describe Dish, type: :model do
@@ -39,5 +37,4 @@ RSpec.describe Dish, type: :model do
       subject.available = nil
       expect(subject).to_not be_valid
     end
-
 end
