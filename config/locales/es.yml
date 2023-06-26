@@ -1,4 +1,3 @@
-
 es:
   application:
     cruds_available: CRUDs Disponibles
@@ -7,14 +6,15 @@ es:
     new_model: Nuevo %{model}
     edit_model: Editar %{model}
     destroy_model: Destruir %{model}
-    create_message: "%{model} creado con exito" 
-    update_message: "%{model} actualizado con exito" 
-    delete_message: "%{model} eliminado con exito" 
+    create_message: "%{model} creado con exito"
+    update_message: "%{model} actualizado con exito"
+    delete_message: "%{model} eliminado con exito"
     show: Mostrar
     edit: Editar
     save: Guardar
     delete: Eliminar
     create: Crear
+    search: Buscar
     can_not_be_saved: No se pudo guardar
     select: Seleccione
     back: Atrás
@@ -51,8 +51,8 @@ es:
         unlock_token: Código de desbloqueo
         updated_at: Actualizado en
         roles:
-            administrator: Administrador
-            cook: Cocinero
+          administrator: Administrador
+          cook: Cocinero
       dish:
         name: Nombre
         description: Descripcion
@@ -68,13 +68,13 @@ es:
         client: Cliente
         status:
           on_time: A Tiempo
-          late: Sobre Tiempo  
+          late: Sobre Tiempo
           delayed: Demorado
           cancelled: Cancelado
           delivered: Entregado
       client:
         first_name: Nombre
-        last_name:  Apellido
+        last_name: Apellido
         phone: Telefono
         user_name: Nombre de Usuario
         password: Contraseña
@@ -96,8 +96,8 @@ es:
         password: Contraseña
         password_confirmation: Confirmación de la contraseña
         roles:
-            administrator: Administrador
-            cook: Cocinero
+          administrator: Administrador
+          cook: Cocinero
     modules:
       user:
         one: Usuario
@@ -117,6 +117,17 @@ es:
       manage_user:
         one: Administrador - Usuario
         other: Administrador - Usuarios
+      manage_order:
+        one: Administrador - Orden
+        other: Administrador - Ordenes
+        filter:
+          start_date: Fecha inicio
+          end_date: Fecha fin
+          client: Cliente
+          state: Estado
+      manage_client:
+        one: Administrador - Cliente
+        other: Administrador - Clientes
     errors:
       models:
         user:
@@ -135,7 +146,7 @@ es:
               blank: El espacio esta en blanco
         dish:
           attributes:
-            name: 
+            name:
               blank: El espacio esta en blanco
             description:
               blank: El espacio esta en blanco
@@ -147,11 +158,11 @@ es:
               blank: El espacio esta en blanco
         order:
           attributes:
-            date: 
+            date:
               blank: El espacio esta en blanco
         manage_dish:
           attributes:
-            name: 
+            name:
               blank: El espacio esta en blanco
             description:
               blank: El espacio esta en blanco
@@ -175,4 +186,3 @@ es:
               taken: El correo ya se encuentra registrado
             password_confirmation:
               blank: El espacio esta en blanco
-    

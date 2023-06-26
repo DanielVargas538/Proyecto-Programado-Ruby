@@ -69,9 +69,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_24_014413) do
     t.date "date"
     t.integer "state"
     t.bigint "client_id"
+    t.bigint "dish_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_orders_on_client_id"
+    t.index ["dish_id"], name: "index_orders_on_dish_id"
   end
 
   create_table "users", force: :cascade do |t|

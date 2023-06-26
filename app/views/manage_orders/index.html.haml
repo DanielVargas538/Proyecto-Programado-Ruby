@@ -1,12 +1,29 @@
 %p{:style => "color: green"}= notice
+
 .div.m-4
   .page.header
     %h1.mb-4
       = t('application.list_of', model: t('activerecord.modules.order.other'))
+  = search_form_for @q, url: manage_orders_path, method: :get do |f|
+    .form-group.mx-4
+      = f.label :client_id, t('activerecord.modules.manage_order.filter.client'), class: "form-label"
+      .div.w-25.mb-4
+        = f.select(:client_id, options_for_select(@clients), { prompt: t('application.select') }, class: "form-control")
+    .form-group.mx-4
+      = f.label :start_date, t('activerecord.modules.manage_order.filter.start_date'), class: "form-label"
+      .div.w-25.mb-4
+        = f.date_field :date_gteq, autofocus: true, class: "form-control"
+    .form-group.mx-4
+      = f.label :end_date, t('activerecord.modules.manage_order.filter.end_date'), class: "form-label"
+      .div.w-25.mb-4
+        = f.date_field :date_lteq, autofocus: true, class: "form-control"
+    .form-group.mx-4
+      = f.label :state, t('activerecord.modules.manage_order.filter.state'), class: "form-label required"
+      .div.w-25.mb-4
+        = f.select(:state, options_for_select(Order.states.invert.map { |value, key| [t("activerecord.attributes.order.status.#{key}"), value] }), { prompt: t('application.select') }, class: "form-control")
 
-  = search_form_for @q do |f|
-    = f.label :date_cont, t('activerecord.attributes.order.date')
-    = f.search_field :date_cont
+    = f.submit t('application.search'), class: "btn btn-primary"
+
   %table.table.table-striped
     %thead
       %tr

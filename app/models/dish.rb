@@ -10,5 +10,4 @@ class Dish < ApplicationRecord
   
     enum available: { 'unavailable': false, 'available': true }
 
-    
 end
