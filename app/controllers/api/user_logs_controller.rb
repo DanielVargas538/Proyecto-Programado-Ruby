@@ -37,6 +37,16 @@ class UserLogsController < ApplicationController
     render 'api/users_log/index', status: :ok
   end
 
+  def verify_params
+    user_exist = UserLog.find_by(email: params[:email])
+    
+    if user_exist
+      render plain: "ok", status: :ok
+    else
+      render plain: "Usuario no encontrado", status: :not_found
+    end
+  end
+
   private
     def set_user_log
       @user_log = UserLog.find(params[:id])
