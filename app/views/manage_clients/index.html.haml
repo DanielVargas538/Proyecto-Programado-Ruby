@@ -25,7 +25,7 @@
         %td= client.password
         %td= client.email
         %td= client.address
-        %td= button_to client.locked, manage_clients(client), method: :put, class: "btn btn-danger"
+        %td= button_to client.locked, manage_client_path(client), method: :put, class: "btn btn-danger"
 
 
 
