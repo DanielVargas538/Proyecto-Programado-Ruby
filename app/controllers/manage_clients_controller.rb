@@ -18,8 +18,8 @@ class ManageClientsController < ApplicationController
   end
 
   private
-
   def set_manage_client
     @manage_client = ManageClient.find(params[:id])
   end
+
 end

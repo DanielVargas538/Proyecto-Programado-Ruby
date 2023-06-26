@@ -1,4 +1,3 @@
-Client.create(first_name: "John", last_name: "Doe", phone: 123456789, user_name: "johndoe", password: "password", email: "johndoe@example.com", address: "123 Main St", locked: false)
 Client.create(first_name: "Jane", last_name: "Smith", phone: 987654321, user_name: "janesmith", password: "password", email: "janesmith@example.com", address: "456 Elm St", locked: true)
 Client.create(first_name: "Sarah", last_name: "Johnson", phone: 6551234, user_name: "sarahj", password: "password", email: "sjohnson@example.com", address: "789 Oak St", locked: false)
 Client.create(first_name: "Michael", last_name: "Brown", phone: 4559876, user_name: "mbrown", password: "password", email: "mbrown@example.com", address: "321 Maple Ave", locked: false)

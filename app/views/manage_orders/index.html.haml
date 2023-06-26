@@ -20,7 +20,7 @@
     .form-group.mx-4
       = f.label :state, t('activerecord.modules.manage_order.filter.state'), class: "form-label required"
       .div.w-25.mb-4
-        = f.select(:state, options_for_select(Order.states.invert.map { |value, key| [t("activerecord.attributes.order.status.#{key}"), value] }), { prompt: t('application.select') }, class: "form-control")
+        = f.select(:state, options_for_select(ManageOrder.states.invert.map { |value, key| [t("activerecord.attributes.order.status.#{key}"), value] }), { prompt: t('application.select') }, class: "form-control")
 
     = f.submit t('application.search'), class: "btn btn-primary"
 

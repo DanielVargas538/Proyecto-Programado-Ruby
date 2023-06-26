@@ -2,6 +2,7 @@ class ManageDish < ApplicationRecord
     self.table_name = "dishes"
     has_many :order
     has_many :clients, through: :orders
+    
     has_one_attached :photo
 
     validates :name, presence: true 

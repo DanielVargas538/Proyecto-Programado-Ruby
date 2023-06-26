@@ -17,7 +17,7 @@
       %th
       %th
   %tbody
-    - @manage_clients.each do |client|
+    - @manage_clients.sort_by { |client| client.id }.each do |client|
       %tr
         %td= client.first_name
         %td= client.last_name
@@ -25,7 +25,8 @@
         %td= client.password
         %td= client.email
         %td= client.address
-        %td= button_to client.locked, manage_client_path(client), method: :put, class: "btn btn-danger"
+        %td= button_to client.locked? ? t('activerecord.attributes.client.locked.blocked') : t('activerecord.attributes.client.locked.unblocked'), manage_client_path(client), method: :put, class: "btn btn-danger"
+        
 
 
 
