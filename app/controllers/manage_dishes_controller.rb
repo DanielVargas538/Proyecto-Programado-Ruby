@@ -28,7 +28,7 @@ class ManageDishesController < ApplicationController
         redirect_to manage_dish_url(@manage_dish), notice: t('application.update_message', model: t('activerecord.modules.manage_dish.one')) 
       else
         render :edit, status: :unprocessable_entity 
-    end
+      end
   end
 
   def destroy

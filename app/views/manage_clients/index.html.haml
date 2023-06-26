@@ -13,7 +13,7 @@
       %th= t('activerecord.attributes.client.password')
       %th= t('activerecord.attributes.client.email')
       %th= t('activerecord.attributes.client.address')
-      %th= t('activerecord.attributes.client.locked')
+      %th= t('activerecord.attributes.client.lock')
       %th
       %th
   %tbody
@@ -25,8 +25,9 @@
         %td= client.password
         %td= client.email
         %td= client.address
-        %td= client.locked
-        %td= submit_tag t('application.block'), class: "btn btn-danger"
+        %td= button_to client.locked, manage_clients(client), method: :put, class: "btn btn-danger"
+
+
 
 
 

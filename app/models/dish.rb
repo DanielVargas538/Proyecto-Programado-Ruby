@@ -8,6 +8,4 @@ class Dish < ApplicationRecord
     validates :photo, presence: true
     validates :available, presence: true
   
-    enum available: { 'unavailable': false, 'available': true }
-
 end

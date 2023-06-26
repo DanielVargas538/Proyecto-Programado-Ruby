@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   resources :manage_dishes
   resources :manage_orders
-  resources :manage_clients
+  resources :manage_clients, only: [:index, :update]
 
   devise_for :users , path_names: { sign_in: 'login', 
     sign_out: 'logout', 

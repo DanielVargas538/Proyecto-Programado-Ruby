@@ -80,6 +80,10 @@ es:
         password: Contraseña
         email: Email
         address: Direccion
+        lock: Estado
+        locked:
+          blocked: Bloqueado
+          unblocked: Bloquear
       manage_dish:
         name: Nombre
         description: Descripcion

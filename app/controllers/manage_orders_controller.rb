@@ -3,22 +3,27 @@ class ManageOrdersController < ApplicationController
   before_action :set_clients
 
   def index
-    @q = ManageOrder.ransack(params[:q])
-    
-    @q.client_id_eq = params[:q][:client_id] if params[:q][:client_id].present?
-    @q.state_eq = params[:q][:state] if params[:q][:state].present?
-    
-    start_date = params[:q][:date_gteq].to_date if params[:q][:date_gteq].present?
-    end_date = params[:q][:end_date].to_date if params[:q][:end_date].present?
 
-    if start_date && end_date
-      @q.date_between(start_date.beginning_of_day..end_date.end_of_day)
-    elsif start_date
-      @q.date_gteq(start_date.beginning_of_day)
-    elsif end_date
-      @q.date_lteq(end_date.end_of_day)
+    if params[:q].present?
+      @q = ManageOrder.ransack(params[:q])
+      
+      @q.client_id_eq = params[:q][:client_id] if params[:q][:client_id].present?
+      @q.state_eq = params[:q][:state] if params[:q][:state].present?
+      
+      start_date = params[:q][:date_gteq].to_date if params[:q][:date_gteq].present?
+      end_date = params[:q][:end_date].to_date if params[:q][:end_date].present?
+
+      if start_date && end_date
+        @q.date_between(start_date.beginning_of_day..end_date.end_of_day)
+      elsif start_date
+        @q.date_gteq(start_date.beginning_of_day)
+      elsif end_date
+        @q.date_lteq(end_date.end_of_day)
+      end
+
+    else
+      @q = ManageOrder.ransack
     end
-
     @manage_orders = @q.result(distinct: true)
 
   end

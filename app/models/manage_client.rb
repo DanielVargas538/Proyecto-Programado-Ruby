@@ -11,5 +11,4 @@ class ManageClient < ApplicationRecord
     validates :email, presence: true, format: { with: /\A[^@\s]+@[^@\s]+\z/}
     validates :address, presence: true
     validates :locked, presence: true
-
 end
