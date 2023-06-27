@@ -1,0 +1,68 @@
+/* Estilo para el título de la tabla */
+.page.header h1 {
+  font-size: 50px;
+  color: #1E242C;
+  font-weight: bold;
+}
+
+.table.table-striped thead .table-titles {
+  background-color: #d9ecd0;
+  font-weight: bold;
+  color: #1E242C;
+  font-size: 20px;
+  width: 100%;
+  padding: 100px;
+  margin: 0;
+  background-size: 100% 100%;
+}
+
+.table.table-striped {
+  margin: 10;
+  padding: 100px;
+}
+
+/* Estilo para el contenido de cada fila */
+.table.table-striped tbody tr td {
+  background-color: #d9ecd0;
+  font-size: px;
+  color: #000000;
+
+}
+
+.btn-primary{
+  font-size: 14px;
+  color:#000000;
+  background-color: #8ca3a3;
+  border-color: #8ca3a3;
+
+}
+
+/* Estilo para los botones de acción */
+.btn-info {
+  font-size: 14px;
+  color:#000000;
+  background-color: #77a8a8;
+  border-color: #77a8a8;
+}
+.btn-success {
+  font-size: 14px;
+  color:#000000;
+  background-color: #b9b0b0;
+  border-color: #b9b0b0;
+
+}
+
+.btn-danger {
+  font-size: 14px;
+  color:#000000;
+  background-color: #b0aac0;
+  border-color: #b0aac0;
+
+}
+
+.btn-info:hover,
+.btn-success:hover,
+.btn-danger:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
