@@ -38,12 +38,12 @@ class UserLogsController < ApplicationController
   end
 
   def verify_params
-    user_exist = UserLog.find_by(email: params[:email])
+    user = UserLog.find_by(email: params[:email])
     
-    if user_exist
-      render plain: "ok", status: :ok
+    if user.valid_password?(params[:password])
+      render plain: 'ok', status: :ok
     else
-      render plain: "Usuario no encontrado", status: :not_found
+      render plain: 'Usuario no encontrado', status: :not_found
     end
   end
 

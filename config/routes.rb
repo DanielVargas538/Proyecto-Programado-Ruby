@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   scope module: :api do
     resources :user_logs
-    get '/user_logs/params/:email', to: 'user_logs#verify_params', email: /[^\/]+/
+    get '/user_logs/params/:email/:password', to: 'user_logs#verify_params', email: /[^\/]+/
   end
 
   devise_for :users , path_names: { sign_in: 'login', 
