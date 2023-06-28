@@ -1,3 +1,5 @@
+= stylesheet_link_tag 'users/index', media: 'all', 'data-turbolinks-track': 'reload'
+ 
 %p{:style => "color: green"}= notice
 .div.m-4
   .page.header
@@ -22,5 +24,5 @@
         %td= t("activerecord.attributes.user.roles.#{user.role}")
         %td= user.email
         %td= link_to t('application.show'), user, class: "btn btn-info"
-        %th= link_to t('application.edit'), edit_manage_user_path(user), class: "btn btn-success"
-        %th= button_to t('application.delete'), user, method: :delete, class: "btn btn-danger"
+        %td= link_to t('application.edit'), edit_manage_user_path(user), class: "btn btn-success"
+        %td= button_to t('application.delete'), user, method: :delete, class: "btn btn-danger"

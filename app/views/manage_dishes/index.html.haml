@@ -18,6 +18,7 @@
       %th= t('activerecord.attributes.manage_dish.available')
       %th
       %th
+      %th
   %tbody
     - @manage_dishes.each do |manage_dish|
       %tr
@@ -27,5 +28,5 @@
         %td= image_tag(manage_dish.photo, width: 100) if manage_dish.photo.present?
         %td= t("activerecord.attributes.manage_dish.availables.#{manage_dish.available}")
         %td= link_to t('application.show'), manage_dish, class: "btn btn-info"
-        %th= link_to t('application.edit'), edit_manage_dish_path(manage_dish), class: "btn btn-success"
-        %th= button_to t('application.delete'), manage_dish, method: :delete, class: "btn btn-danger"
+        %td= link_to t('application.edit'), edit_manage_dish_path(manage_dish), class: "btn btn-success"
+        %td= button_to t('application.delete'), manage_dish, method: :delete, class: "btn btn-danger"

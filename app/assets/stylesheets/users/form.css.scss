@@ -1,0 +1,72 @@
+.manage-dish-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #d9ecd0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: #8ca3a3;
+  border-color: #8ca3a3;
+  color: #fff;
+}
+
+.btn-info {
+  background-color: #77a8a8;
+  border-color: #77a8a8;
+  color: #fff;
+}
+
+.btn-success {
+  background-color: #b9b0b0;
+  border-color: #b9b0b0;
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: #b0aac0;
+  border-color: #b0aac0;
+  color: #fff;
+}
+
+.btn:hover {
+  filter: brightness(90%);
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #222;
+  font-size: 17px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border: none;
+  background-color: #fff;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #444;
+}
+
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23444" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M16.5,11h-13C2.673,11,2,10.327,2,9.5v-4C2,4.673,2.673,4,3.5,4h13c0.827,0,1.5,0.673,1.5,1.5v4C18,10.327,17.327,11,16.5,11z M3.5,5C3.224,5,3,5.224,3,5.5v4C3,9.776,3.224,10,3.5,10h13c0.276,0,0.5-0.224,0.5-0.5v-4C17,5.224,16.776,5,16.5,5H3.5z M4,7h12v1H4V7z M4,9h12v1H4V9z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: auto 50%;
+}

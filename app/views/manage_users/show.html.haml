@@ -1,3 +1,4 @@
+= stylesheet_link_tag 'dishes/show', media: 'all', 'data-turbolinks-track': 'reload'
 %p#notice= notice
 
 .div.m-4
@@ -14,7 +15,7 @@
             %h5.card-title
                 = t('activerecord.attributes.manage_user.email')
             %p.card-text= @manage_user.email
-
+ 
 .row.mt-4
     .offset-3.col-3
         = link_to t('application.back'), manage_users_path, class: "btn btn-secondary"

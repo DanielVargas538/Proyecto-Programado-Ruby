@@ -32,6 +32,13 @@ class UserLogsController < ApplicationController
     end
   end
 
+  def toggle_block
+    @user_log = UserLog.find(params[:id])
+    @user_log.update(blocked: !@user_log.blocked)
+    render 'api/users_log/index', status: :ok
+  end
+
+  
   def destroy
     @user_log.destroy
     render 'api/users_log/index', status: :ok

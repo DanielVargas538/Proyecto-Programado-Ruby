@@ -1,0 +1,59 @@
+.page.header h1 {
+    font-size: 40px;
+    color: #1E242C;
+    font-weight: bold;
+  }
+  
+  .table.table-striped {
+    background-color: #d9ecd0;
+    margin: 10;
+    padding: 100px;
+  }
+  
+  .btn-primary{
+    font-size: 14px;
+    color:#000000;
+    background-color: #8ca3a3;
+    border-color: #8ca3a3;
+  
+  }
+  
+  .btn-info {
+    font-size: 14px;
+    color:#000000;
+    background-color: #77a8a8;
+    border-color: #77a8a8;
+  }
+  
+  .btn-success {
+    font-size: 14px;
+    color:#000000;
+    background-color: #b9b0b0;
+    border-color: #b9b0b0;
+  
+  }
+  
+  .btn-danger {
+    font-size: 14px;
+    color:#000000;
+    background-color: #b0aac0;
+    border-color: #b0aac0;
+  
+  }
+  
+  .btn-info:hover{
+    background-color: #5f8585;
+    border-color: #5f8585;
+  
+  }
+  
+  .btn-success:hover{
+    background-color: #888383;
+    border-color: #888383;
+  
+  }
+  
+  .btn-danger:hover {
+    background-color: #918d9e;
+    border-color: #918d9e;
+  }

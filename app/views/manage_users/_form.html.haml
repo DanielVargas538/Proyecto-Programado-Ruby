@@ -1,3 +1,5 @@
+= stylesheet_link_tag 'users/form', media: 'all', 'data-turbolinks-track': 'reload'
+ 
 = form_for @manage_user, validate: true do |f|
   - if @manage_user.errors.any?
     .card.mx-4

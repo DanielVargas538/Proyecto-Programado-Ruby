@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
   
-  resources :manage_users
+  resources :manage_users do
+    member do
+      patch :toggle_block
+    end
+  end
+
+  namespace :api do
+    resources :user_logs do
+      member do
+        patch :toggle_block
+      end
+    end
+  end  
   
   resources :manage_dishes
   resources :manage_orders

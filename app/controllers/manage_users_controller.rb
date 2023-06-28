@@ -31,6 +31,18 @@ class ManageUsersController < ApplicationController
       end
   end
 
+  def toggle_block
+    @manage_user = ManageUser.find(params[:id])
+    @manage_user.update(blocked: !@manage_user.blocked)
+    redirect_to manage_users_url, notice: "El estado del cliente ha sido actualizado."
+  end  
+
+  def toggle_block
+    @manage_user = ManageUser.find(params[:id])
+    @manage_user.update(blocked: !@manage_user.blocked)
+    redirect_to manage_users_url, notice: "El estado del cliente ha sido actualizado."
+  end
+
   def destroy
     @manage_user.destroy
     redirect_to manage_users_url, notice: "Manage user was successfully destroyed." 
