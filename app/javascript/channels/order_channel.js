@@ -2,7 +2,7 @@ import consumer from "channels/consumer"
 
 consumer.subscriptions.create("OrderChannel", {
   connected() {
-    // Called when the subscription is ready for use on the server
+    console.log("Conectado")
   },
 
   disconnected() {
@@ -10,6 +10,5 @@ consumer.subscriptions.create("OrderChannel", {
   },
 
   received(data) {
-    // Called when there's incoming data on the websocket for this channel
   }
 });

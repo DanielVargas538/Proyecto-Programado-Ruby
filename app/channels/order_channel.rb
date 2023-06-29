@@ -5,7 +5,7 @@ class OrderChannel < ApplicationCable::Channel
   end
 
   def unsubscribed
-    
+    # Desconexión del canal
   end
 
   private

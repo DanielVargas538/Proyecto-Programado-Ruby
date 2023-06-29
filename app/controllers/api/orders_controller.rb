@@ -2,7 +2,7 @@ module Api
   class OrdersController < ApplicationController
     skip_before_action :verify_authenticity_token
     before_action  only: %i[ show edit update destroy ]
-
+    
     def index
       @orders = Order.all
     end
@@ -38,13 +38,12 @@ module Api
     end
 
     def order_filtred
-      @q = ManageOrder.includes(:client, :dish).ransack(params[:q])
+      @q = Order.includes(:client, :dish).ransack
       @orders = @q.result.where("state < ?", 3).order(date: :asc)
-
+    
       render json: @orders.to_json(include: { client: { only: [:first_name] }, dish: { only: [:name, :description] } })
     end
-    
-    
+        
     private
     def set_order
       @order = Order.find(params[:id])
