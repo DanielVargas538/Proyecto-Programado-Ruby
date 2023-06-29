@@ -19,10 +19,11 @@ Rails.application.routes.draw do
   resources :manage_clients, only: [:index, :update]
 
   scope module: :api do
-    resources :user_logs
     get '/user_logs/params/:email/:password', to: 'user_logs#verify_params', email: /[^\/]+/
 
     get '/orders/filter', to: 'orders#order_filtred'
+    
+    resources :user_logs
     resources :orders
    # mount ActionCable.server => '/cable'
   end
@@ -37,9 +38,10 @@ Rails.application.routes.draw do
 
   scope module: :api do
     resources :clients
-    resources :orders
     resources :dishes
   end
+
+
 
   root "dashboards#index"
 end
