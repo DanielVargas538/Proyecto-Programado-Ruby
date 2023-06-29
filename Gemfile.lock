@@ -303,6 +303,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  actioncable
   bootsnap
   bootstrap
   capybara
