@@ -3,7 +3,7 @@ class ManageDish < ApplicationRecord
     has_many :order
     has_many :clients, through: :orders
     
-    has_one_attached :photo
+    has_one_attached :photo, dependent: :destroy
 
     validates :name, presence: true 
     validates :description, presence: true

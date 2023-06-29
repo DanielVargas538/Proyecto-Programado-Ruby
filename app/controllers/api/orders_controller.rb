@@ -34,14 +34,14 @@ module Api
 
     def destroy
       @order.destroy
-      render 'api/orders/index', status: :ok 
+      render 'api/orders/show', status: :ok 
     end
 
     def order_filtred
       @q = ManageOrder.includes(:client, :dish).ransack(params[:q])
       @orders = @q.result.where("state < ?", 3).order(date: :asc)
-      
-      render json: @orders.to_json(include: { client: { only: [:first_name] }, dish: { only: [:name] } })
+
+      render json: @orders.to_json(include: { client: { only: [:first_name] }, dish: { only: [:name, :description] } })
     end
     
     
@@ -51,7 +51,7 @@ module Api
     end
 
     def order_params
-      params.require(:order).permit(:date, :state, :client_id)
+      params.require(:order).permit(:date, :state, :client_id, :dish_id)
     end
 
   end

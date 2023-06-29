@@ -1,11 +1,11 @@
 class Dish < ApplicationRecord
     self.table_name = "dishes"
-    has_one_attached :photo
+    has_one_attached :photo, dependent: :destroy
 
     validates :name, presence: true 
     validates :description, presence: true
     validates :price, presence: true
     validates :photo, presence: true
     validates :available, presence: true
-  
+
 end

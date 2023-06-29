@@ -7,4 +7,11 @@ json.order do
         json.address @order.client.address
         json.phone @order.client.phone
     end
+    json.dish do
+        json.name @order.dish.name
+        json.description @order.dish.description
+        json.price @order.dish.price
+        #json.photo @order.dish.photo
+        json.available @order.dish.available
+    end
 end
