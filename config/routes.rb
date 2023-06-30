@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   resources :manage_dishes
   resources :manage_orders
   resources :manage_clients, only: [:index, :update]
-
   scope module: :api do
     get '/user_logs/params/:email/:password', to: 'user_logs#verify_params', email: /[^\/]+/
 
@@ -25,7 +24,7 @@ Rails.application.routes.draw do
     
     resources :user_logs
     resources :orders
-   # mount ActionCable.server => '/cable'
+    mount ActionCable.server => '/cable'
   end
 
   devise_for :users , path_names: { sign_in: 'login', 

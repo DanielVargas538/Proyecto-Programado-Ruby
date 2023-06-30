@@ -1,8 +1,13 @@
 module Api
   class OrdersController < ApplicationController
     skip_before_action :verify_authenticity_token
+<<<<<<< HEAD
     before_action only: %i[ show edit update destroy ]
 
+=======
+    before_action  only: %i[ show edit update destroy ]
+    
+>>>>>>> feature/KevinTest
     def index
       @orders = Order.all
     end
@@ -18,7 +23,7 @@ module Api
     def create
       @order = Order.new(order_params)
       if @order.save
-        render 'api/orders/show', status: :created
+        OrderChannel.send_order_data_to_channel
       else
         render json: @order.errors, status: :unprocessable_entity 
       end
@@ -39,6 +44,7 @@ module Api
     end
 
     def order_filtred
+<<<<<<< HEAD
       @q = Order.includes(:client, :dish).ransack(params[:q])
       @orders = @q.result.where("state < ?", 3).order(date: :asc)
 
@@ -46,6 +52,23 @@ module Api
       #render json: @orders.to_json(include: { client: { only: [:first_name] }, dish: { only: [:name, :description] } })
     end
 
+=======
+      @q = Order.includes(:client, :dish).ransack
+      @orders = @q.result.where("state < ?", 3).order(date: :asc)
+      Rails.logger.info("Entre order filtred")
+      response json: @orders.to_json(include: { client: { only: [:first_name] }, dish: { only: [:name, :description] } })
+    end
+       
+    def order_filtred2
+      @q = Order.includes(:client, :dish).ransack
+      @orders = @q.result.where("state < ?", 3).order(date: :asc)
+
+      Rails.logger.info('Hola x2')
+
+      @orders.to_json(include: { client: { only: [:first_name] }, dish: { only: [:name, :description] } })
+    end
+    
+>>>>>>> feature/KevinTest
     private
     def set_order
       @order = Order.find(params[:id])
