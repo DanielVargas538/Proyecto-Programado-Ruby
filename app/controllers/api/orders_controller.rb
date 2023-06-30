@@ -18,7 +18,7 @@ module Api
     def create
       @order = Order.new(order_params)
       if @order.save
-        render 'api/orders/show', status: :created
+        OrderChannel.send_order_data_to_channel
       else
         render json: @order.errors, status: :unprocessable_entity 
       end
@@ -50,7 +50,7 @@ module Api
 
       Rails.logger.info('Hola x2')
 
-      @orders
+      @orders.to_json(include: { client: { only: [:first_name] }, dish: { only: [:name, :description] } })
     end
     
     private
