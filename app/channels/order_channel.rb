@@ -1,7 +1,7 @@
 class OrderChannel < ApplicationCable::Channel
   def self.send_order_data_to_channel
     Rails.logger.info('Hola')
-    order_data = Api::OrdersController.new.order_filtred2
+    order_data = Api::OrdersController.new.order_filtred
     Rails.logger.info('Hola x3')
     ActionCable.server.broadcast("OrderChannel", { order_data: order_data })
   end

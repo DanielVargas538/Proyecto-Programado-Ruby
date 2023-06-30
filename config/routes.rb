@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :manage_dishes
+  resources :manage_orders
+  resources :manage_clients, only: [:index, :update]
   
   resources :manage_users do
     member do
@@ -14,19 +18,6 @@ Rails.application.routes.draw do
     end
   end  
   
-  resources :manage_dishes
-  resources :manage_orders
-  resources :manage_clients, only: [:index, :update]
-  scope module: :api do
-    get '/user_logs/params/:email/:password', to: 'user_logs#verify_params', email: /[^\/]+/
-
-    get '/orders/filter', to: 'orders#order_filtred'
-    
-    resources :user_logs
-    resources :orders
-    mount ActionCable.server => '/cable'
-  end
-
   devise_for :users , path_names: { sign_in: 'login', 
     sign_out: 'logout', 
     password: 'secret', 
@@ -40,7 +31,13 @@ Rails.application.routes.draw do
     resources :dishes
   end
 
+  scope module: :api do
+    get '/user_logs/params/:email/:password', to: 'user_logs#verify_params', email: /[^\/]+/
 
+    resources :user_logs
+    resources :orders
+    mount ActionCable.server => '/cable'
+  end
 
   root "dashboards#index"
 end
