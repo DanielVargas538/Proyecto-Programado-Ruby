@@ -1,11 +1,11 @@
 development:
-  adapter: redis
-  url: redis://localhost:6379/0
+  adapter: postgresql
+  # Otras opciones de configuración para PostgreSQL
 
 test:
-  adapter: redis
-  url: redis://localhost:6379/0
+  adapter: postgresql
+  # Otras opciones de configuración para PostgreSQL
 
 production:
-  adapter: redis
-  url: <%= ENV['REDIS_URL'] %>
+  adapter: postgresql
+  # Otras opciones de configuración para PostgreSQL

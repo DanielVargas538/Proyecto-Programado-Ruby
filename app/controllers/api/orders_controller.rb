@@ -40,10 +40,19 @@ module Api
     def order_filtred
       @q = Order.includes(:client, :dish).ransack
       @orders = @q.result.where("state < ?", 3).order(date: :asc)
-    
-      render json: @orders.to_json(include: { client: { only: [:first_name] }, dish: { only: [:name, :description] } })
+      Rails.logger.info("Entre order filtred")
+      response json: @orders.to_json(include: { client: { only: [:first_name] }, dish: { only: [:name, :description] } })
     end
-        
+       
+    def order_filtred2
+      @q = Order.includes(:client, :dish).ransack
+      @orders = @q.result.where("state < ?", 3).order(date: :asc)
+
+      Rails.logger.info('Hola x2')
+
+      @orders
+    end
+    
     private
     def set_order
       @order = Order.find(params[:id])
