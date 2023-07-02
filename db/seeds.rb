@@ -13,6 +13,6 @@ Client.create(first_name: "Olivia", last_name: "Lee", phone: 912567, user_name: 
 Client.create(first_name: "Noah", last_name: "Lopez", phone: 876543, user_name: "noahl", password: "password", email: "nlopez@example.com", address: "789 Pine Ave", locked: false)
 
 
-Order.create(date: Date.today, state: 0, client_id: 1, dish_id: 1)
-
+Order.create(date: Date.today, client_id: 1, dish_id: 1)
+Order.create(date: Date.today, client_id: 2, dish_id: 1)
 
