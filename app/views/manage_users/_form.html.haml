@@ -1,6 +1,6 @@
 = stylesheet_link_tag 'users/form', media: 'all', 'data-turbolinks-track': 'reload'
- 
-= form_for @manage_user, validate: true do |f|
+
+= form_for @manage_user, url: (@manage_user.id ? manage_user_path(@manage_user) : manage_users_path), method: (@manage_user.id ? :put : :post), validate: true do |f|
   - if @manage_user.errors.any?
     .card.mx-4
       .card-body
@@ -15,12 +15,8 @@
     = f.label :name, class: "form-label required"
   .div.w-25
     = f.text_field :name, autofocus: true, class: "form-control"
-  
-  .form-group.mx-4
-    = f.label :role, class: "form-label required"
-  .div.w-25
-    = f.select(:role, options_for_select(roles, @manage_user.role), {prompt: t('application.select')}, class: "form-control")
-    
+
+
   .form-group.mx-4
     = f.label :email, class: "form-label required"
   .div.w-25
@@ -43,4 +39,3 @@
       = link_to t('application.back'), manage_users_path, class: "btn  btn-secondary btn-block"
     .col-3
       = button_tag t('application.save'), class: "btn btn-primary btn-block"
-

@@ -1,3 +1,4 @@
+require_relative '../models/order'
 class ManageOrdersController < ApplicationController
   before_action :set_manage_order, only: %i[ show edit update destroy ]
   before_action :set_clients
@@ -5,7 +6,7 @@ class ManageOrdersController < ApplicationController
   def index
 
     if params[:q].present?
-      @q = ManageOrder.ransack(params[:q])
+      @q = Order.ransack(params[:q])
       
       @q.client_id_eq = params[:q][:client_id] if params[:q][:client_id].present?
       @q.state_eq = params[:q][:state] if params[:q][:state].present?
@@ -22,7 +23,7 @@ class ManageOrdersController < ApplicationController
       end
 
     else
-      @q = ManageOrder.ransack
+      @q = Order.ransack
     end
     @manage_orders = @q.result(distinct: true)
 
@@ -33,13 +34,13 @@ class ManageOrdersController < ApplicationController
   def show; end
 
   def new
-    @manage_order = ManageOrder.new
+    @manage_order = Order.new
   end
 
   def edit; end
 
   def create
-    @manage_order = ManageOrder.new(manage_order_params)
+    @manage_order = Order.new(manage_order_params)
 
     if @manage_order.save
       redirect_to manage_order_url(@manage_order), notice: t('application.create_message', model: t('activerecord.modules.manage_order.one')) 
@@ -63,7 +64,7 @@ class ManageOrdersController < ApplicationController
 
   private
     def set_manage_order
-      @manage_order = ManageOrder.find(params[:id])
+      @manage_order = Order.find(params[:id])
     end
 
     def manage_order_params
@@ -71,7 +72,10 @@ class ManageOrdersController < ApplicationController
     end
 
     def set_clients
-      @clients= ManageClient.all.map {|client| ["#{client.first_name} #{client.last_name}", client.id]}
+      @clients = Order.includes(:client).map do |order|
+        client = order.client
+        ["#{client.first_name} #{client.last_name}", client.id]
+      end.uniq
     end
-
+        
 end

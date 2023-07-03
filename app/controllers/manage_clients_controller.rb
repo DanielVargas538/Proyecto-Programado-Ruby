@@ -1,8 +1,9 @@
+require_relative '../models/client'
 class ManageClientsController < ApplicationController
   before_action :set_manage_client, only: %i[show edit update destroy]
 
   def index
-    @manage_clients = ManageClient.all
+    @manage_clients = Client.all
   end
 
   def show; end
@@ -19,7 +20,7 @@ class ManageClientsController < ApplicationController
 
   private
   def set_manage_client
-    @manage_client = ManageClient.find(params[:id])
+    @manage_client = Client.find(params[:id])
   end
 
 end

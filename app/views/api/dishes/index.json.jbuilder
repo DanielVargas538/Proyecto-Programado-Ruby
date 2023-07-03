@@ -3,6 +3,6 @@ json.array! @dishes do |dish|
     json.name dish.name
     json.description dish.description
     json.price dish.price
-    json.photo dish.photo
+    #json.photo dish.photo
     json.available dish.available
 end

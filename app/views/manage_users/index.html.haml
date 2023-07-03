@@ -23,6 +23,6 @@
         %td= user.name
         %td= t("activerecord.attributes.user.roles.#{user.role}")
         %td= user.email
-        %td= link_to t('application.show'), user, class: "btn btn-info"
+        %td= link_to t('application.show'), manage_user_path(user), class: "btn btn-info"
         %td= link_to t('application.edit'), edit_manage_user_path(user), class: "btn btn-success"
-        %td= button_to t('application.delete'), user, method: :delete, class: "btn btn-danger"
+        %td= button_to t('application.delete'),manage_user_path(user), method: :delete, class: "btn btn-danger"

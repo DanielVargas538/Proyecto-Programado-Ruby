@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-
+  
   resources :manage_dishes
   resources :manage_orders
-  resources :manage_clients, only: [:index, :update]
+  resources :manage_users
+  resources :manage_clients
   
   resources :manage_users do
     member do
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
 
   scope module: :api do
     resources :clients
-    resources :dishes
+    resources :dishes, only: [:index]
   end
 
   scope module: :api do

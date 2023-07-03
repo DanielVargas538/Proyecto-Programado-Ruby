@@ -25,6 +25,8 @@ gem "turbo-rails"
 gem 'ransack'
 gem 'actioncable'
 gem 'redis'
+gem 'aasm'
+gem 'rufus-scheduler'
 
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 

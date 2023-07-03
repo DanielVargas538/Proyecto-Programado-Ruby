@@ -27,6 +27,6 @@
         %td= manage_dish.price
         %td= image_tag(manage_dish.photo, width: 100) if manage_dish.photo.present?
         %td= t("activerecord.attributes.manage_dish.availables.#{manage_dish.available}")
-        %td= link_to t('application.show'), manage_dish, class: "btn btn-info"
+        %td= link_to t('application.show'), manage_dish_path(manage_dish), class: "btn btn-info"
         %td= link_to t('application.edit'), edit_manage_dish_path(manage_dish), class: "btn btn-success"
-        %td= button_to t('application.delete'), manage_dish, method: :delete, class: "btn btn-danger"
+        %td= button_to t('application.delete'), manage_dish_path(manage_dish), method: :delete, class: "btn btn-danger"

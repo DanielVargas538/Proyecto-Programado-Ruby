@@ -14,5 +14,8 @@ Client.create(first_name: "Noah", last_name: "Lopez", phone: 876543, user_name: 
 
 
 Order.create(date: Date.today, state: 0, client_id: 1, dish_id: 1)
+Order.create(date: Date.today, state: 0, client_id: 2, dish_id: 1)
+Order.create(date: Date.today, state: 1, client_id: 3, dish_id: 1)
+Order.create(date: Date.today, state: 2, client_id: 4, dish_id: 1)
 
 

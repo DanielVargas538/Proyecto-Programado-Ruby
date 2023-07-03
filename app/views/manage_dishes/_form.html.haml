@@ -1,6 +1,6 @@
 = stylesheet_link_tag 'dishes/form', media: 'all', 'data-turbolinks-track': 'reload'
 
-= form_for @manage_dish, validate: true do |f|
+= form_for @manage_dish, url: (@manage_dish.id ? manage_dish_path(@manage_dish) : manage_dishes_path), method: (@manage_dish.id ? :put : :post), validate: true do |f|
   - if @manage_dish.errors.any?
     .card.mx-4
       .card-body
