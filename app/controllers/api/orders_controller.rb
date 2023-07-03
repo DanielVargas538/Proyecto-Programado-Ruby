@@ -45,11 +45,11 @@ module Api
       render 'api/orders/show', status: :ok 
     end
 
-    def order_filtred
+    def order_filtered
       @q = Order.includes(:client, :dish).ransack
-      @orders = @q.result.where("state < ?", 3).order(date: :asc)
-  
-      @orders.to_json(include: { client: { only: [:first_name, :last_name] }, dish: { only: [:name, :description], methods:[:photo_url] } })
+      @orders = @q.result.where("state < ?", 3).order(date: :asc).limit(10)
+
+      @orders.to_json(include: { client: { only: [:first_name, :last_name] }, dish: { only: [:name, :description], methods: [:photo_url] } })
     end
 
     private
@@ -66,15 +66,12 @@ module Api
 
       scheduler.every '5m' do
         change_order_status
-        Rails.logger.info('Se cambió el estado de las órdenes')
       end
     end
 
     def change_order_status
       orders = Order.where(state: [:on_time, :late, :delayed])
       orders.each do |order|
-        Rails.logger.info('Se inicio el cambió el estado de las órdenes')
-        Rails.logger.info(order.state)
         if order.on_time?
           order.mark_as_late
         elsif order.late?
@@ -82,8 +79,6 @@ module Api
         elsif order.delayed?
           order.mark_as_delivered
         end
-        Rails.logger.info('Se finalizo el cambió el estado de las órdenes')
-        Rails.logger.info(order.state)
         order.save
       end
       OrderChannel.send_order_data_to_channel
