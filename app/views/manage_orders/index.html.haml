@@ -6,39 +6,41 @@
   .page.header
     %h1.mb-4
       = t('application.list_of', model: t('activerecord.modules.order.other'))
-  = search_form_for @q, url: manage_orders_path, method: :get do |f|
-    .form-group.mx-4
-      = f.label :client_id, t('activerecord.modules.manage_order.filter.client'), class: "form-label"
-      .div.w-25.mb-4
-        = f.select(:client_id, options_for_select(@clients), { prompt: t('application.select') }, class: "form-control")
-    .form-group.mx-4
-      = f.label :start_date, t('activerecord.modules.manage_order.filter.start_date'), class: "form-label"
-      .div.w-25.mb-4
-        = f.date_field :date_gteq, autofocus: true, class: "form-control"
-    .form-group.mx-4
-      = f.label :end_date, t('activerecord.modules.manage_order.filter.end_date'), class: "form-label"
-      .div.w-25.mb-4
-        = f.date_field :date_lteq, autofocus: true, class: "form-control"
-    .form-group.mx-4
-      = f.label :state, t('activerecord.modules.manage_order.filter.state'), class: "form-label required"
-      .div.w-25.mb-4
-        = f.select(:state, options_for_select(Order.states.invert.map { |value, key| [t("activerecord.attributes.order.status.#{key}"), value] }), { prompt: t('application.select') }, class: "form-control")
+    .row.mt-4
+      = search_form_for @q, url: manage_orders_path, method: :get do |f|
+        .row
+          .form-group.col-3
+            = f.label :client_id, t('activerecord.modules.manage_order.filter.client'), class: "form-label h4"
+            .div.w-50.mb-4
+              = f.select(:client_id, options_for_select(@clients), { prompt: t('application.select') }, class: "form-control")
+          .form-group.col-3
+            = f.label :start_date, t('activerecord.modules.manage_order.filter.start_date'), class: "form-label h4"
+            .div.w-50.mb-4
+              = f.date_field :date_gteq, autofocus: true, class: "form-control"
+          .form-group.col-3
+            = f.label :end_date, t('activerecord.modules.manage_order.filter.end_date'), class: "form-label h4"
+            .div.w-50.mb-4
+              = f.date_field :date_lteq, autofocus: true, class: "form-control"
+          .form-group.col-3
+            = f.label :state, t('activerecord.modules.manage_order.filter.state'), class: "form-label h4"
+            .div.w-50.mb-4
+              = f.select(:state, options_for_select(Order.states.invert.map { |value, key| [t("activerecord.attributes.order.status.#{key}"), value] }), { prompt: t('application.select') }, class: "form-control")
+          
+          = f.submit t('application.search'), class: "btn btn-primary"
 
-    = f.submit t('application.search'), class: "btn btn-primary"
-
-  %table.table.table-striped
-    %thead
+%table.table.table-striped
+  %thead
+    %tr
+      %th= t('activerecord.attributes.order.date')
+      %th= t('activerecord.attributes.order.state')
+      %th= t('activerecord.attributes.client.first_name') + ' ' + t('activerecord.modules.client.one')
+      %th= t('activerecord.attributes.client.address')
+      %th= t('activerecord.attributes.client.phone')
+  %tbody
+    - @manage_orders.each do |order|
       %tr
-        %th= t('activerecord.attributes.order.date')
-        %th= t('activerecord.attributes.order.state')
-        %th= t('activerecord.attributes.client.first_name') + ' ' + t('activerecord.modules.client.one')
-        %th= t('activerecord.attributes.client.address')
-        %th= t('activerecord.attributes.client.phone')
-    %tbody
-      - @manage_orders.each do |order|
-        %tr
-          %td= order.date
-          %td= t("activerecord.attributes.order.status.#{order.state}")
-          %td= "#{order.client.first_name} #{order.client.last_name}"
-          %td= order.client.address
-          %td= order.client.phone
+        %td= order.date
+        %td= t("activerecord.attributes.order.status.#{order.state}")
+        %td= "#{order.client.first_name} #{order.client.last_name}"
+        %td= order.client.address
+        %td= order.client.phone

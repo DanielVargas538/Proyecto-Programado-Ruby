@@ -1,10 +1,10 @@
 require_relative '../models/order'
 class ManageOrdersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_manage_order, only: %i[ show edit update destroy ]
   before_action :set_clients
 
   def index
-
     if params[:q].present?
       @q = Order.ransack(params[:q])
       
@@ -26,10 +26,7 @@ class ManageOrdersController < ApplicationController
       @q = Order.ransack
     end
     @manage_orders = @q.result(distinct: true)
-
   end
-  
-  
   
   def show; end
 

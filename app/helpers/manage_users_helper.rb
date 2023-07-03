@@ -1,8 +1,8 @@
 module ManageUsersHelper
 
     def roles
-        User.roles.keys.map do |rol|
-            [t("activerecord.attributes.user.roles.#{rol}"), rol]
+        User.roles.keys.map do |role|
+            [t("activerecord.attributes.user.roles.#{role}"), role]
         end
     end
 end

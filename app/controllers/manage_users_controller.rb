@@ -1,5 +1,6 @@
 require_relative '../models/user'
 class ManageUsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_manage_user, only: %i[ show edit update destroy ]
 
   def index

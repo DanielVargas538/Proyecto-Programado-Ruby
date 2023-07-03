@@ -16,6 +16,10 @@
   .div.w-25
     = f.text_field :name, autofocus: true, class: "form-control"
 
+  .form-group.mx-4
+    = f.label :role, class: "form-label required"
+  .div.w-25
+    = f.select(:role, options_for_select(roles, @manage_user.role), {prompt: t('application.select')}, class: "form-control")
 
   .form-group.mx-4
     = f.label :email, class: "form-label required"

@@ -13,9 +13,8 @@
   .div.w-25
     = f.text_field :name, autofocus: true, class: "form-control"
   
-
-    = f.hidden_field :role, value: true
-
+    = f.hidden_field :role, value: 'administrator'
+    
   .form-group
     = f.label :email, class: "form-label required"
   .div.w-25

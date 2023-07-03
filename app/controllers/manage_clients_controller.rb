@@ -1,5 +1,6 @@
 require_relative '../models/client'
 class ManageClientsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_manage_client, only: %i[show edit update destroy]
 
   def index

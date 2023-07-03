@@ -4,8 +4,8 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 30 }
   validates :role, presence: true
   validates :password_confirmation, presence: true
-  
-  #enum role: { 'cook': false, 'administrator': true }
+
+  enum role: { 'administrator': true , 'cook': false  }
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

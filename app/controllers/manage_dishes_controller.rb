@@ -1,7 +1,8 @@
 require_relative '../models/dish'
 class ManageDishesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_manage_dish, only: %i[ show edit update destroy ]
-
+  
   def index
     @manage_dishes = Dish.all
   end
