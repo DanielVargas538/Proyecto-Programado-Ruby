@@ -38,13 +38,23 @@ module Api
       render 'api/clients/index', status: :ok 
     end
 
+    def verify_params
+      client = Client.find_by(email: params[:email])
+      
+      if user.valid_password?(params[:password])
+        render plain: 'ok', status: :ok
+      else
+        render plain: 'Cliente no encontrado', status: :not_found
+      end
+    end
+
     private
       def set_client
         @client = Client.find(params[:id])
       end
 
       def client_params
-        params.require(:client).permit(:first_name, :last_name, :phone, :user_name, :password, :email, :address, :locked)
+        params.require(:client).permit(:first_name, :last_name, :phone, :address, :locked, :email, :password, :password_confirmation)
       end
 
   end

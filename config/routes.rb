@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   resources :manage_dishes
   resources :manage_orders
   resources :manage_users
@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     sign_up: 'sign_up'}
 
   scope module: :api do
+    get '/clients/params/:email/:password', to: 'clients#verify_params', email: /[^\/]+/
+
     resources :clients
     resources :dishes, only: [:index]
   end

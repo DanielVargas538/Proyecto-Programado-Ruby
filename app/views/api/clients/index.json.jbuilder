@@ -4,6 +4,4 @@ json.array! @clients do |client|
     json.phone client.phone
     json.email client.email
     json.address client.address
-    json.user_name client.user_name
-    json.password client.password
 end
