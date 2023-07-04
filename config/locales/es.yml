@@ -64,6 +64,7 @@ es:
           unavailable: No Disponible
       order:
         date: Fecha
+        hour: Hora
         state: Estado
         client: Cliente
         status:

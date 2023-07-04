@@ -47,7 +47,7 @@ module Api
     def verify_params
       user = UserLog.find_by(email: params[:email])
       
-      if user.valid_password?(params[:password])
+      if user.valid_password?(params[:password] )&& !user.role
         render plain: 'ok', status: :ok
       else
         render plain: 'Usuario no encontrado', status: :not_found

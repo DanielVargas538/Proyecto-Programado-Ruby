@@ -38,6 +38,9 @@ Rails.application.routes.draw do
     resources :user_logs
     resources :orders
     mount ActionCable.server => '/cable'
+
+    get '/dishes_availables', to: 'dishes#dishes_availables'
+    resources :dishes, only: [:index]
   end
 
   root "dashboards#index"

@@ -7,13 +7,13 @@ class ManageOrdersController < ApplicationController
   def index
     if params[:q].present?
       @q = Order.ransack(params[:q])
-      
+  
       @q.client_id_eq = params[:q][:client_id] if params[:q][:client_id].present?
       @q.state_eq = params[:q][:state] if params[:q][:state].present?
-      
-      start_date = params[:q][:date_gteq].to_date if params[:q][:date_gteq].present?
-      end_date = params[:q][:end_date].to_date if params[:q][:end_date].present?
-
+  
+      start_date = params[:q][:date_gteq].to_datetime if params[:q][:date_gteq].present?
+      end_date = params[:q][:end_date].to_datetime if params[:q][:end_date].present?
+  
       if start_date && end_date
         @q.date_between(start_date.beginning_of_day..end_date.end_of_day)
       elsif start_date
@@ -21,13 +21,14 @@ class ManageOrdersController < ApplicationController
       elsif end_date
         @q.date_lteq(end_date.end_of_day)
       end
-
+  
     else
       @q = Order.ransack
     end
+  
     @manage_orders = @q.result(distinct: true)
   end
-  
+    
   def show; end
 
   def new

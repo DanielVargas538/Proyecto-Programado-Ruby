@@ -1,28 +1,32 @@
-require 'rufus-scheduler'
 module Api
   class OrdersController < ApplicationController
     skip_before_action :verify_authenticity_token
-    before_action only: %i[ show edit update destroy ]
-
+    before_action only: %i[show edit update destroy]
+    
     def initialize
       super
-      start_order_status_updater
+      start_order_updater unless order_updater_running?
     end
 
     def index
       @orders = Order.all
     end
 
-    def show; end
+    def show
+      set_order
+    end
 
     def new
       @order = Order.new
     end
 
-    def edit; end
+    def edit
+      set_order
+    end
 
     def create
       @order = Order.new(order_params)
+      @order.date = Time.zone.now
       if @order.save
         OrderChannel.send_order_data_to_channel
       else
@@ -31,7 +35,7 @@ module Api
     end
 
     def update
-      set_order();
+      set_order
       if @order.update(state: params[:state])
         OrderChannel.send_order_data_to_channel
         render json: @order, status: :ok
@@ -41,6 +45,7 @@ module Api
     end
 
     def destroy
+      set_order
       @order.destroy
       render 'api/orders/show', status: :ok 
     end
@@ -53,36 +58,59 @@ module Api
     end
 
     private
+
     def set_order
       @order = Order.find(params[:id])
     end
 
     def order_params
-      params.require(:order).permit(:date, :state, :client_id, :dish_id)
+      params.require(:order).permit(:state, :client_id, :dish_id)
     end
-
-    def start_order_status_updater
-      scheduler = Rufus::Scheduler.new
-
-      scheduler.every '5m' do
-        change_order_status
-      end
-    end
-
-    def change_order_status
-      orders = Order.where(state: [:on_time, :late, :delayed])
-      orders.each do |order|
-        if order.on_time?
-          order.mark_as_late
-        elsif order.late?
-          order.mark_as_delayed
-        elsif order.delayed?
-          order.mark_as_delivered
+   
+    def start_order_updater
+      Thread.new do
+        Thread.current[:name] = 'order_updater'
+        loop do
+          begin
+            orders = Order.where(state: [:on_time, :late])
+            send_order_data = false
+    
+            ActiveRecord::Base.transaction do
+              Rails.logger.info('Antes de entrar al each')
+              orders.each do |order|
+                Rails.logger.info(order.date)
+                difference = ((Time.zone.now - order.date) / 60).to_i
+                Rails.logger.info(difference)
+                if difference >= 5 && difference < 10 && order.on_time?
+                  order.mark_as_late
+                  send_order_data = true
+                  Rails.logger.info('Cambio de on_time a late')
+                elsif difference >= 10
+                  order.mark_as_delayed
+                  send_order_data = true
+                  Rails.logger.info('Cambio de late a delayed')
+                end
+    
+                order.save if order.changed?
+              end
+    
+              if send_order_data
+                OrderChannel.send_order_data_to_channel
+              end
+            end
+    
+            ActiveRecord::Base.clear_active_connections!
+          rescue StandardError => e
+            Rails.logger.error("Error en el hilo del updater de órdenes: #{e.message}")
+          end
+    
+          sleep(120)
         end
-        order.save
       end
-      OrderChannel.send_order_data_to_channel
+    end    
+    
+    def order_updater_running?
+      Thread.list.any? { |thread| thread[:name] == 'order_updater' }
     end
-
   end
 end
