@@ -18,7 +18,7 @@ module Api
     def create
       @user_log = UserLog.new(user_log_params)
       if @user_log.save
-        render 'api/users_log/show', status: :created
+        render status: :created
       else
         render json: @user_log.errors, status: :unprocessable_entity
       end
@@ -26,7 +26,7 @@ module Api
 
     def update
       if @user_log.update(user_log_params)
-        render 'api/users_log/show', status: :ok
+        render status: :ok
       else
         render :edit, status: :unprocessable_entity
       end
@@ -35,13 +35,13 @@ module Api
     def toggle_block
       @user_log = UserLog.find(params[:id])
       @user_log.update(blocked: !@user_log.blocked)
-      render 'api/users_log/index', status: :ok
+      render status: :ok
     end
 
     
     def destroy
       @user_log.destroy
-      render 'api/users_log/index', status: :ok
+      render status: :ok
     end
 
     def verify_params

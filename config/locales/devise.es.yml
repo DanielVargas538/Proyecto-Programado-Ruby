@@ -6,7 +6,7 @@ es:
       log_in: "Iniciar sesión"
       sign_in: "Registrarse"
       forgot_password: "Olvido la contraseña?"
-      reset_password: "Enviarme instrucciones para restablecer contraseña"
+      reset_password: "Enviarme instrucciones"
     confirmations:
       confirmed: "Tu cuenta ya ha sido confirmada."
       confirmed_and_signed_in: "Tu cuenta ya ha sido confirmada. Has sido identificado."

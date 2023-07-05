@@ -19,15 +19,15 @@ module Api
     def create
       @client = Client.new(client_params)
       if @client.save
-        render status: :created
+        render json:@client.errors, status: :created
       else
-        render status: :unprocessable_entity 
+        render json: @client.errors, status: :unprocessable_entity 
       end
     end
 
     def update
       if @client.update(client_params)
-        render 'api/clients/show', status: :ok
+        render status: :ok
       else
         render json: @client.errors, status: :unprocessable_entity 
       end
@@ -35,7 +35,7 @@ module Api
 
     def destroy
       @client.destroy
-      render 'api/clients/index', status: :ok 
+      render status: :ok 
     end
 
     def verify_params

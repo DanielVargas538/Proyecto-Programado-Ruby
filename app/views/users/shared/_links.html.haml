@@ -1,7 +1,7 @@
-- if controller_name != 'sessions'
-  = link_to t('devise.buttons.log_in'), new_session_path(resource_name), class: "btn btn-primary btn-block btn-login"
+- if controller_name != 'sessions' && controller_name != 'passwords'
+  = link_to t('devise.buttons.log_in'), new_session_path(resource_name), class: "btn btn-danger btn-block btn-login"
   %br/
-- if devise_mapping.registerable? && controller_name != 'registrations'
+- if devise_mapping.registerable? && controller_name != 'registrations' && controller_name != 'passwords'
   = link_to t('devise.buttons.sign_in'), new_registration_path(resource_name), class: "btn btn-success btn-block btn-sign_Up"
   %br/
 - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
@@ -13,7 +13,11 @@
 - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
   = link_to t('devise.question.unlock_instruction'), new_unlock_path(resource_name), class: "btn btn-secondary btn-block"
   %br/
+- if controller_name == 'passwords'
+  = link_to t('application.back'), new_session_path(resource_name), class: "btn btn-primary btn-block btn-login"
 - if devise_mapping.omniauthable?
   - resource_class.omniauth_providers.each do |provider|
     = button_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), data: { turbo: false } , class: "btn btn-secondary btn-block"
     %br/
+
+

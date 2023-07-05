@@ -26,7 +26,6 @@ class ManageDishesController < ApplicationController
 
   def update
       if @manage_dish.update(manage_dish_params)
-        Rails.logger.info('Hola')
         redirect_to manage_dishes_path, notice: t('application.update_message', model: t('activerecord.modules.manage_dish.one')) 
       else
         render :edit, status: :unprocessable_entity 

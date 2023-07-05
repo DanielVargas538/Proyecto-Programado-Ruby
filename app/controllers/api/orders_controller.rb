@@ -47,7 +47,7 @@ module Api
     def destroy
       set_order
       @order.destroy
-      render 'api/orders/show', status: :ok 
+      render status: :ok 
     end
 
     def order_filtered
@@ -76,19 +76,16 @@ module Api
             send_order_data = false
     
             ActiveRecord::Base.transaction do
-              Rails.logger.info('Antes de entrar al each')
               orders.each do |order|
-                Rails.logger.info(order.date)
+                
                 difference = ((Time.zone.now - order.date) / 60).to_i
-                Rails.logger.info(difference)
+                
                 if difference >= 5 && difference < 10 && order.on_time?
                   order.mark_as_late
                   send_order_data = true
-                  Rails.logger.info('Cambio de on_time a late')
                 elsif difference >= 10
                   order.mark_as_delayed
                   send_order_data = true
-                  Rails.logger.info('Cambio de late a delayed')
                 end
     
                 order.save if order.changed?
@@ -101,7 +98,7 @@ module Api
     
             ActiveRecord::Base.clear_active_connections!
           rescue StandardError => e
-            Rails.logger.error("Error en el hilo del updater de órdenes: #{e.message}")
+            Rails.logger.error(e.message)
           end
     
           sleep(120)

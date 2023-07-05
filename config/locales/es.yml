@@ -147,8 +147,11 @@ es:
             password:
               blank: El espacio esta en blanco
               taken: El correo ya se encuentra registrado
+              too_short: Debe de tener un minimo de 6 caracteres
             password_confirmation:
               blank: El espacio esta en blanco
+              too_short: Debe de tener un minimo de 6 caracteres
+              confirmation: No coincide con la contraseña
         dish:
           attributes:
             name:
