@@ -1,3 +1,4 @@
+require_relative '../../models/client'
 module Api
   class ClientsController < ApplicationController
     skip_before_action :verify_authenticity_token
@@ -17,11 +18,10 @@ module Api
 
     def create
       @client = Client.new(client_params)
-
       if @client.save
-        render 'api/clients/show', status: :created
+        status: :created
       else
-        render json: @client.errors, status: :unprocessable_entity 
+        status: :unprocessable_entity 
       end
     end
 
@@ -41,7 +41,7 @@ module Api
     def verify_params
       client = Client.find_by(email: params[:email])
       
-      if user.valid_password?(params[:password])
+      if client.valid_password?(params[:password])
         render plain: 'ok', status: :ok
       else
         render plain: 'Cliente no encontrado', status: :not_found
@@ -54,7 +54,10 @@ module Api
       end
 
       def client_params
-        params.require(:client).permit(:first_name, :last_name, :phone, :address, :locked, :email, :password, :password_confirmation)
+        client_attributes = params.require(:client).permit(:first_name, :last_name, :phone, :address, :locked, :email)
+        client_attributes[:password] = params[:password]
+        client_attributes[:password_confirmation] = params[:password_confirmation]
+        client_attributes
       end
 
   end

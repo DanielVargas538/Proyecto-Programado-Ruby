@@ -60,7 +60,7 @@ module Api
       end
 
       def user_log_params
-        params.require(:manage_user).permit(:name, :role, :email, :password , :password_confirmation)
+        params.require(:user).permit(:name, :role, :email, :password , :password_confirmation)
       end
   end
 end
