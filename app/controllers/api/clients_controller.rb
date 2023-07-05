@@ -19,9 +19,9 @@ module Api
     def create
       @client = Client.new(client_params)
       if @client.save
-        status: :created
+        render status: :created
       else
-        status: :unprocessable_entity 
+        render status: :unprocessable_entity 
       end
     end
 
