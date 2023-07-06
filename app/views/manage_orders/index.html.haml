@@ -35,7 +35,10 @@
       %th= t('activerecord.attributes.order.hour')
       %th= t('activerecord.attributes.order.state')
       %th= t('activerecord.attributes.client.first_name') + ' ' + t('activerecord.modules.client.one')
-      %th= t('activerecord.attributes.client.address')
+      %th= t('activerecord.attributes.client.province')
+      %th= t('activerecord.attributes.client.canton')
+      %th= t('activerecord.attributes.client.district')
+      %th= t('activerecord.attributes.client.street')
       %th= t('activerecord.attributes.client.phone')
       %th= t('activerecord.attributes.dish.name')
       %th= t('activerecord.attributes.order.quantity')
@@ -46,7 +49,10 @@
         %td= order.created_at.strftime("%H:%M")
         %td= t("activerecord.attributes.order.status.#{order.state}")
         %td= "#{order.client.first_name} #{order.client.last_name}"
-        %td= order.client.address
+        %td= order.client.province
+        %td= order.client.canton
+        %td= order.client.district
+        %td= order.client.street
         %td= order.client.phone
         %td= order.dish.name
         %td= order.quantity
