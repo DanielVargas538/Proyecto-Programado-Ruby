@@ -20,7 +20,12 @@ module Api
       @manage_dishes = @q.result.where(available: true)
     
       render json: @manage_dishes.map { |dish| dish.as_json(only: [:id, :description, :name, :price], methods: [:photo_url]) }
-    end    
+    end
+
+    def dishes_for_name
+      @dishes = Dish.ransack(name_cont_any: params[:name], available_eq: true).result
+      render json: @dishes.map { |dish| dish.as_json(only: [:id, :description, :name, :price], methods: [:photo_url]) }
+    end
     
     private
       def set_dish

@@ -39,6 +39,7 @@ Rails.application.routes.draw do
 
     get '/orders/params/:client_id', to: 'orders#order_client'
     
+    get '/dishes_for_name/:name', to: 'dishes#dishes_for_name'
     resources :user_logs 
     resources :orders
     mount ActionCable.server => '/cable'

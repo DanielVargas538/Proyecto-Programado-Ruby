@@ -58,10 +58,10 @@ module Api
     end
 
     def order_client
-      orders = Order.find_by(client_id: params[:client_id])
-
-      render json: orders.to_json(include: {dish: { only: [ :name, :description, :price ], methods: [:photo_url] } }), status: :ok
-    end 
+      orders = Order.where(client_id: params[:client_id])
+    
+      render json: orders.as_json(include: { dish: { only: [:name, :description, :price], methods: [:photo_url] } }), status: :ok
+    end    
 
     private
 
