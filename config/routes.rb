@@ -37,14 +37,14 @@ Rails.application.routes.draw do
   scope module: :api do
     get '/user_logs/params/:email/:password', to: 'user_logs#verify_params', email: /[^\/]+/
 
-    get '/orders/params/:client_id', to: 'orders#order_client'
+    get '/orders/params/:client_id', to: 'orders#order_client', name: /[^\/]+/ 
     
     get '/dishes_for_name/:name', to: 'dishes#dishes_for_name'
+
     resources :user_logs 
     resources :orders
     mount ActionCable.server => '/cable'
 
-    get '/dishes_availables', to: 'dishes#dishes_availables'
     resources :dishes, only: [:index]
   end
 

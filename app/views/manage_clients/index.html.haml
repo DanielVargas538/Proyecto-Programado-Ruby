@@ -13,7 +13,10 @@
       %th= t('activerecord.attributes.client.last_name')
       %th= t('activerecord.attributes.client.password')
       %th= t('activerecord.attributes.client.email')
-      %th= t('activerecord.attributes.client.address')
+      %th= t('activerecord.attributes.client.province')
+      %th= t('activerecord.attributes.client.canton')
+      %th= t('activerecord.attributes.client.district')
+      %th= t('activerecord.attributes.client.street')
       %th= t('activerecord.attributes.client.lock')
       %th
       %th
@@ -24,7 +27,10 @@
         %td= client.last_name
         %td= client.password
         %td= client.email
-        %td= client.address
+        %td= client.province
+        %td= client.canton
+        %td= client.district
+        %td= client.street
         %td= button_to client.locked? ? t('activerecord.attributes.client.locked.blocked') : t('activerecord.attributes.client.locked.unblocked'), manage_client_path(client), method: :put, class: "btn btn-danger"
         
 

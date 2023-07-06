@@ -15,15 +15,11 @@ module Api
 
     def edit; end
 
-    def dishes_availables
-      @q = Dish.ransack
-      @manage_dishes = @q.result.where(available: true)
-    
-      render json: @manage_dishes.map { |dish| dish.as_json(only: [:id, :description, :name, :price], methods: [:photo_url]) }
-    end
-
     def dishes_for_name
       @dishes = Dish.ransack(name_cont_any: params[:name], available_eq: true).result
+      if @dishes.empty?
+        @dishes = Dish.ransack(available_eq: true).result
+      end
       render json: @dishes.map { |dish| dish.as_json(only: [:id, :description, :name, :price], methods: [:photo_url]) }
     end
     

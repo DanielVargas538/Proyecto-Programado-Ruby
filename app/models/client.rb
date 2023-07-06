@@ -6,7 +6,10 @@ class Client < ApplicationRecord
   validates :first_name,presence: true
   validates :last_name,presence: true
   validates :phone,presence: true
-  validates :address, presence: true
+  validates :province, presence: true
+  validates :canton, presence: true
+  validates :district, presence: true
+  validates :street, presence: true
   validates :locked, inclusion: [true, false]
   validates :email,presence: true,format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
 

@@ -53,7 +53,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_205507) do
     t.string "first_name"
     t.string "last_name"
     t.integer "phone"
-    t.string "address"
+    t.string "province"
+    t.string "canton"
+    t.string "district"
+    t.string "street"
     t.boolean "locked", default: true
     t.index ["email"], name: "index_clients_on_email", unique: true
     t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true

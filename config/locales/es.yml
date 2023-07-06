@@ -81,7 +81,10 @@ es:
         user_name: Nombre de Usuario
         password: Contraseña
         email: Email
-        address: Direccion
+        province: Provincia
+        canton: Cantón
+        district: Distrito
+        street: Calle
         lock: Estado
         locked:
           blocked: Bloqueado

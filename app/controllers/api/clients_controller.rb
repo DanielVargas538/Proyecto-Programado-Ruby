@@ -40,9 +40,6 @@ module Api
 
     def verify_params
       client = Client.find_by(email: params[:email])
-
-      Rails.logger.info(client.to_json)
-
       if client.valid_password?(params[:password])
         render json: client.to_json , status: :ok
       else
@@ -56,7 +53,7 @@ module Api
       end
 
       def client_params
-        client_attributes = params.require(:client).permit(:first_name, :last_name, :phone, :address, :locked, :email)
+        client_attributes = params.require(:client).permit(:first_name, :last_name, :phone, :province, :canton, :district, :street, :locked, :email)
         client_attributes[:password] = params[:password]
         client_attributes[:password_confirmation] = params[:password_confirmation]
         client_attributes
