@@ -37,6 +37,8 @@
       %th= t('activerecord.attributes.client.first_name') + ' ' + t('activerecord.modules.client.one')
       %th= t('activerecord.attributes.client.address')
       %th= t('activerecord.attributes.client.phone')
+      %th= t('activerecord.attributes.dish.name')
+      %th= t('activerecord.attributes.order.quantity')
   %tbody
     - @manage_orders.each do |order|
       %tr
@@ -46,3 +48,5 @@
         %td= "#{order.client.first_name} #{order.client.last_name}"
         %td= order.client.address
         %td= order.client.phone
+        %td= order.dish.name
+        %td= order.quantity

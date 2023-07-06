@@ -72,6 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_205507) do
   create_table "orders", force: :cascade do |t|
     t.datetime "date"
     t.integer "state", default: 0
+    t.integer "quantity"
     t.bigint "client_id"
     t.bigint "dish_id"
     t.datetime "created_at", null: false

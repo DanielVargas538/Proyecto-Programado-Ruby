@@ -57,6 +57,12 @@ module Api
       @orders.to_json(include: { client: { only: [:first_name, :last_name] }, dish: { only: [:name, :description], methods: [:photo_url] } })
     end
 
+    def order_client
+      orders = Order.find_by(client_id: params[:client_id])
+
+      render json: orders.to_json(include: {dish: { only: [ :name, :description, :price ], methods: [:photo_url] } }), status: :ok
+    end 
+
     private
 
     def set_order
@@ -64,7 +70,7 @@ module Api
     end
 
     def order_params
-      params.require(:order).permit(:state, :client_id, :dish_id)
+      params.require(:order).permit(:quantity, :client_id, :dish_id)
     end
    
     def start_order_updater

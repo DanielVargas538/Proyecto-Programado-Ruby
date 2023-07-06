@@ -3,6 +3,7 @@ class CreateOrders < ActiveRecord::Migration[7.0]
     create_table :orders do |t|
       t.datetime :date
       t.integer :state, default:0
+      t.integer :quantity
       t.belongs_to :client
       t.belongs_to :dish
       

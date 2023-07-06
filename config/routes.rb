@@ -37,7 +37,9 @@ Rails.application.routes.draw do
   scope module: :api do
     get '/user_logs/params/:email/:password', to: 'user_logs#verify_params', email: /[^\/]+/
 
-    resources :user_logs
+    get '/orders/params/:client_id', to: 'orders#order_client'
+    
+    resources :user_logs 
     resources :orders
     mount ActionCable.server => '/cable'
 

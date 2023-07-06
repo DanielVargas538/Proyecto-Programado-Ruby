@@ -67,6 +67,7 @@ es:
         hour: Hora
         state: Estado
         client: Cliente
+        quantity: Cantidad
         status:
           on_time: A Tiempo
           late: Sobre Tiempo
