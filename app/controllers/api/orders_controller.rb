@@ -73,7 +73,7 @@ module Api
 
     def order_filtered
       @q = Order.includes(:client, :dish).ransack
-      @orders = @q.result.where("state < ?", 3).order(date: :asc)
+      @orders = @q.result.where("state < ?", 3).order(id: :asc)
     
       orders_count = @orders.count
     
@@ -86,7 +86,7 @@ module Api
     end
      
     def order_client
-      orders = Order.where(client_id: params[:client_id]).order(date: :asc)
+      orders = Order.where(client_id: params[:client_id]).order(id: :asc)
     
       render json: orders.as_json(include: { dish: { only: [:name, :description, :price], methods: [:photo_url] } }), status: :ok
     end    
