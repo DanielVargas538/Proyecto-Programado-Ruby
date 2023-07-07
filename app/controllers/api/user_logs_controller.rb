@@ -50,7 +50,7 @@ module Api
       if user.valid_password?(params[:password] )&& !user.role
         render plain: 'ok', status: :ok
       else
-        render plain: 'Usuario no encontrado', status: :not_found
+        render plain: t('activerecord.errors.not_found', model: t('activerecord.modules.user.one')), status: :not_found
       end
     end
 

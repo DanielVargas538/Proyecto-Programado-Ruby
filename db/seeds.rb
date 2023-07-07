@@ -1,48 +1,48 @@
 Client.create!(
-    email: 'john.doe@example.com', password: '123456' , first_name: 'John', last_name: 'Doe',phone: 1234590, province: 'California', canton: 'Los Angeles', district: 'Downtown', street: 'Main Street', locked: false
+    email: 'john.doe@gmail.com', password: '123456' , first_name: 'John', last_name: 'Doe',phone: 1234590, province: 'California', canton: 'Los Angeles', district: 'Downtown', street: 'Main Street', locked: false
 )
   
 Client.create!(
-    email: 'jane.smith@example.com', password: '123456' , first_name: 'Jane', last_name: 'Smith', phone: 9873210, province: 'New York', canton: 'Manhattan', district: 'Midtown', street: 'Park Avenue', locked: true
+    email: 'jane.smith@gmail.com', password: '123456' , first_name: 'Jane', last_name: 'Smith', phone: 9873210, province: 'New York', canton: 'Manhattan', district: 'Midtown', street: 'Park Avenue', locked: true
 )
   
 Client.create!(
-    email: 'michael.williams@example.com', password: '123456' , first_name: 'Michael', last_name: 'Williams', phone: 1525454, province: 'Texas', canton: 'Austin', district: 'Downtown', street: 'Congress Avenue', locked: false
+    email: 'michael.williams@gmail.com', password: '123456' , first_name: 'Michael', last_name: 'Williams', phone: 1525454, province: 'Texas', canton: 'Austin', district: 'Downtown', street: 'Congress Avenue', locked: false
 )
   
 Client.create!(
-    email: 'emma.wilson@example.com', password: '123456' , first_name: 'Emma', last_name: 'Wilson', phone: 534567, province: 'California', canton: 'San Francisco', district: 'Mission District', street: 'Valencia Street', locked: false
+    email: 'emma.wilson@gmail.com', password: '123456' , first_name: 'Emma', last_name: 'Wilson', phone: 534567, province: 'California', canton: 'San Francisco', district: 'Mission District', street: 'Valencia Street', locked: false
 )
   
 Client.create!(
-    email: 'david.johnson@example.com', password: '123456' , first_name: 'David', last_name: 'Johnson', phone: 777943, province: 'Florida', canton: 'Miami', district: 'South Beach', street: 'Ocean Drive', locked: true
+    email: 'david.johnson@gmail.com', password: '123456' , first_name: 'David', last_name: 'Johnson', phone: 777943, province: 'Florida', canton: 'Miami', district: 'South Beach', street: 'Ocean Drive', locked: true
 )
   
 Client.create!(
-    email: 'olivia.brown@example.com', password: '123456' , first_name: 'Olivia', last_name: 'Brown', phone: 8854321, province: 'New York', canton: 'Brooklyn', district: 'Williamsburg', street: 'Bedford Avenue', locked: false
+    email: 'olivia.brown@gmail.com', password: '123456' , first_name: 'Olivia', last_name: 'Brown', phone: 8854321, province: 'New York', canton: 'Brooklyn', district: 'Williamsburg', street: 'Bedford Avenue', locked: false
 )
   
 Client.create!(
-    email: 'sophia.jackson@example.com', password: '123456' , first_name: 'Sophia', last_name: 'Jackson', phone: 5596543, province: 'Texas', canton: 'Houston', district: 'Montrose', street: 'Westheimer Road', locked: false
+    email: 'sophia.jackson@gmail.com', password: '123456' , first_name: 'Sophia', last_name: 'Jackson', phone: 5596543, province: 'Texas', canton: 'Houston', district: 'Montrose', street: 'Westheimer Road', locked: false
   )
   
-Client.create!( email: 'noah.thompson@example.com', password: '123456',password_confirmation: '123456', first_name: 'Noah', last_name: 'Thompson', phone: 9994567, province: 'Illinois', canton: 'Chicago', district: 'Lincoln Park', street: 'Clark Street', locked: true
+Client.create!( email: 'noah.thompson@gmail.com', password: '123456',password_confirmation: '123456', first_name: 'Noah', last_name: 'Thompson', phone: 9994567, province: 'Illinois', canton: 'Chicago', district: 'Lincoln Park', street: 'Clark Street', locked: true
 )
 
 Client.create!(
-    email: 'isabella.white@example.com', password: '123456' , first_name: 'Isabella', last_name: 'White', phone: 775521, province: 'Florida', canton: 'Orlando', district: 'Downtown', street: 'Orange Avenue', locked: false
+    email: 'isabella.white@gmail.com', password: '123456' , first_name: 'Isabella', last_name: 'White', phone: 775521, province: 'Florida', canton: 'Orlando', district: 'Downtown', street: 'Orange Avenue', locked: false
 )
 
 Client.create!(
-    email: 'mia.moore@example.com', password: '123456' , first_name: 'Mia', last_name: 'Moore', phone: 555122, province: 'California', canton: 'San Diego', district: 'Gaslamp Quarter', street: 'Fifth Avenue', locked: false
+    email: 'mia.moore@gmail.com', password: '123456' , first_name: 'Mia', last_name: 'Moore', phone: 555122, province: 'California', canton: 'San Diego', district: 'Gaslamp Quarter', street: 'Fifth Avenue', locked: false
 )
   
 Client.create!(
-    email: 'ethan.davis@example.com', password: '123456' , first_name: 'Ethan', last_name: 'Davis', phone: 888000, province: 'Washington', canton: 'Seattle', district: 'Belltown', street: 'First Avenue', locked: true
+    email: 'ethan.davis@gmail.com', password: '123456' , first_name: 'Ethan', last_name: 'Davis', phone: 888000, province: 'Washington', canton: 'Seattle', district: 'Belltown', street: 'First Avenue', locked: true
 )
 
 Client.create!(
-    email: 'ava.harris@example.com', password: '123456' , first_name: 'Ava', last_name: 'Harris', phone: 4445666, province: 'Colorado', canton: 'Denver', district: 'LoDo', street: '16th Street', locked: false
+    email: 'ava.harris@gmail.com', password: '123456' , first_name: 'Ava', last_name: 'Harris', phone: 4445666, province: 'Colorado', canton: 'Denver', district: 'LoDo', street: '16th Street', locked: false
 )
   
 Dish.create!(
@@ -109,7 +109,7 @@ Dish.create!(
 )
 
 Dish.create!(
-    name: 'Pizza', description: 'n clásico irresistible que conquista todos los paladares. Nuestra pizza se hornea a la perfección, con una base de masa crujiente y esponjosa, cubierta de una salsa de tomate vibrante y una generosa cantidad de queso derretido', price: 3000, available: true,
+    name: 'Pizza', description: 'Un clásico irresistible que conquista todos los paladares. Nuestra pizza se hornea a la perfección, con una base de masa crujiente y esponjosa, cubierta de una salsa de tomate vibrante y una generosa cantidad de queso derretido', price: 3000, available: true,
     photo: {
       io: File.open(Rails.root.join('app/assets/images/orders/pizza.jpg')),
       filename: 'pizza.jpg',
@@ -136,78 +136,78 @@ Dish.create!(
 )
 
 User.create!(
-    email: 'john.doe@example.com', password: '123456', password_confirmation: '123456' , name: 'John Doe', role: false
+    email: 'kevin@gmail.com', password: '123456', password_confirmation: '123456' , name: 'Kevin', role: true
 )
   
 User.create!(
-    email: 'jane.smith@example.com', password: '123456', password_confirmation: '123456' , name: 'Jane Smith', role: true
+    email: 'jesush@gmail.com', password: '123456', password_confirmation: '123456' , name: 'Jesus', role: true
 )
   
 User.create!(
-    email: 'michael.williams@example.com', password: '123456', password_confirmation: '123456' , name: 'Michael Williams', role: false
+    email: 'daniel@gmail.com', password: '123456', password_confirmation: '123456' , name: 'Daniel', role: true
 )
 
 User.create!(
-    email: 'emma.wilson@example.com', password: '123456', password_confirmation: '123456' , name: 'Emma Wilson', role: false
+    email: 'keyleth@gmail.com', password: '123456', password_confirmation: '123456' , name: 'Keyleth', role: false
 )
 
 User.create!(
-    email: 'david.johnson@example.com', password: '123456', password_confirmation: '123456' , name: 'David Johnson', role: true
+    email: 'francisco@gmail.com', password: '123456', password_confirmation: '123456' , name: 'Francisco', role: true
 )
   
 User.create!(
-    email: 'olivia.brown@example.com', password: '123456', password_confirmation: '123456' , name: 'Olivia Brown', role: false
+    email: 'harold@gmail.com', password: '123456', password_confirmation: '123456' , name: 'Harold', role: false
 )
   
 User.create!(
-    email: 'sophia.jackson@example.com', password: '123456', password_confirmation: '123456' , name: 'Sophia Jackson', role: false
+    email: 'harley@gmail.com', password: '123456', password_confirmation: '123456' , name: 'Harley', role: false
 )
   
 User.create!(
-    email: 'noah.thompson@example.com', password: '123456', password_confirmation: '123456' , name: 'Noah Thompson', role: true
+    email: 'hansy@gmail.com', password: '123456', password_confirmation: '123456' , name: 'Hansy', role: true
 )
 
 User.create!(
-    email: 'isabella.white@example.com', password: '123456', password_confirmation: '123456' , name: 'Isabella White', role: false
+    email: 'michael@gmail.com', password: '123456', password_confirmation: '123456' , name: 'Michael', role: false
 )
   
 
 User.create!(
-    email: 'mia.moore@example.com', password: '123456', password_confirmation: '123456', name: 'Mia Moore', role: false
+    email: 'marielos@gmail.com', password: '123456', password_confirmation: '123456', name: 'Marielos', role: false
 )
   
 User.create!(
-    email: 'ethan.davis@example.com', password: '123456', password_confirmation: '123456', name: 'Ethan Davis', role: true
+    email: 'anderson@gmail.com', password: '123456', password_confirmation: '123456', name: 'Anderson', role: true
 )
 
 User.create!(
-    email: 'ava.harris@example.com', password: '123456', password_confirmation: '123456', name: 'Ava Harris', role: false
+    email: 'victoria@gmail.com', password: '123456', password_confirmation: '123456', name: 'Victoria', role: false
 )
   
 
-Order.create(date: DateTime.new(2023, 1, 1, 10, 30), client_id: 1, dish_id: 1)
+Order.create(date: DateTime.new(2023, 7, 8, 8, 30), client_id: 1, dish_id: 1, quantity: 1)
 
-Order.create(date: DateTime.new(2023, 2, 15, 18, 45), client_id: 2, dish_id: 2)
+Order.create(date: DateTime.new(2023, 7, 8, 8, 35), client_id: 2, dish_id: 2, quantity: 2)
 
-Order.create(date: DateTime.new(2023, 3, 10, 12, 0), client_id: 3, dish_id: 3)
+Order.create(date: DateTime.new(2023, 7, 8, 7, 50), client_id: 3, dish_id: 3, quantity: 4)
 
-Order.create(date: DateTime.new(2023, 4, 20, 20, 15), client_id: 4, dish_id: 4)
+Order.create(date: DateTime.new(2023, 7, 8, 8, 15), client_id: 4, dish_id: 4, quantity: 1)
 
-Order.create(date: DateTime.new(2023, 5, 5, 13, 30), client_id: 5, dish_id: 5)
+Order.create(date: DateTime.new(2023, 7, 8, 8, 0), client_id: 5, dish_id: 5, quantity: 3)
 
-Order.create(date: DateTime.new(2023, 6, 20, 19, 0), client_id: 6, dish_id: 4)
+Order.create(date: DateTime.new(2023, 7, 8, 8, 5), client_id: 6, dish_id: 4, quantity: 2)
 
-Order.create(date: DateTime.new(2023, 7, 10, 14, 45), client_id: 7, dish_id: 7)
+Order.create(date: DateTime.new(2023, 7, 8, 7, 45), client_id: 7, dish_id: 7, quantity: 5)
 
-Order.create(date: DateTime.new(2023, 8, 15, 17, 15), client_id: 8, dish_id: 8)
+Order.create(date: DateTime.new(2023, 7, 8, 8, 5), client_id: 8, dish_id: 8, quantity: 2)
 
-Order.create(date: DateTime.new(2023, 9, 1, 11, 30), client_id: 9, dish_id: 9)
+Order.create(date: DateTime.new(2023, 7, 8, 8, 10), client_id: 9, dish_id: 9, quantity: 1)
 
-Order.create(date: DateTime.new(2023, 10, 15, 17, 45), client_id: 10, dish_id: 8)
+Order.create(date: DateTime.new(2023, 7, 8, 8, 35), client_id: 10, dish_id: 8, quantity: 1)
 
-Order.create(date: DateTime.new(2023, 11, 8, 13, 0), client_id: 1, dish_id: 1)
+Order.create(date: DateTime.new(2023, 7, 8, 9, 0), client_id: 1, dish_id: 1, quantity: 6)
 
-Order.create(date: DateTime.new(2023, 12, 20, 21, 15), client_id: 1, dish_id: 2)
+Order.create(date: DateTime.new(2023, 7, 8, 8, 15), client_id: 1, dish_id: 2, quantity: 3)
 
 
 

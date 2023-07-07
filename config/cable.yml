@@ -1,11 +1,8 @@
 development:
   adapter: postgresql
-  # Otras opciones de configuración para PostgreSQL
 
 test:
   adapter: postgresql
-  # Otras opciones de configuración para PostgreSQL
 
 production:
   adapter: postgresql
-  # Otras opciones de configuración para PostgreSQL

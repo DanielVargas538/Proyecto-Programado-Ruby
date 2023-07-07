@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end  
   
-  devise_for :users , path_names: { sign_in: 'login', 
+  devise_for :users, :controllers => { sessions: 'users/sessions' }, path_names: { sign_in: 'login',
     sign_out: 'logout', 
     password: 'secret', 
     confirmation: 'verification', 

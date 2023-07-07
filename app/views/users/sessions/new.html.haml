@@ -5,6 +5,9 @@
 
   .h2 
     = t('application.log_in') 
+  .span  
+    %p.alert= alert
+
 
   .form-group
     = f.label :email, class: "form-label required"
@@ -15,13 +18,13 @@
     = f.label :password, class: "form-label required"
   .div.w-25
     = f.password_field :password, autocomplete: "current-password", class: "form-control"
-  - if devise_mapping.rememberable?
-    .form-group
-      = f.check_box :remember_me, class: "form-check-input"
-      = f.label :remember_me , class: "form-check-label"
+
+  .h4
+  %span= t('application.message_login')
+      
   .actions
   .row.mt-4
     .col-3
-      = button_tag t('devise.buttons.log_in'), type: "submit", class: "btn btn-danger btn-block btn-submit"
+      = button_tag t('devise.buttons.log_in'), type: "submit", class: "btn btn-danger btn-block btn-submit" 
     .offset-5.col-3
       = render "users/shared/links"

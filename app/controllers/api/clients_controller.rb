@@ -39,11 +39,12 @@ module Api
     end
 
     def verify_params
+      
       client = Client.find_by(email: params[:email]) 
       if client.valid_password?(params[:password]) && !client.locked
         render json: client.to_json , status: :ok
       else
-        render plain: 'Cliente no encontrado', status: :not_found
+        render plain: t('activerecord.errors.not_found', model: t('activerecord.modules.client.one')), status: :not_found
       end
     end
 

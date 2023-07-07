@@ -1,5 +1,6 @@
 es:
   application:
+    message_login: Inicia Sesion o Registrate si no lo has hecho
     cruds_available: CRUDs Disponibles
     logout: Cerrar Sesion
     list_of: Lista de %{model}
@@ -198,3 +199,6 @@ es:
               taken: El correo ya se encuentra registrado
             password_confirmation:
               blank: El espacio esta en blanco
+      not_found: "%{model} no encontrado"
+      update: Error al actualizar
+      permited: "Este %{model} no tiene permisos"
