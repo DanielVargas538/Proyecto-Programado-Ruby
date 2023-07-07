@@ -36,7 +36,6 @@ module Api
 
     def update
       set_order
-      Rails.logger.info(@order.state)
       if @order.state === 'delivered'
         render json:'Error al actaulizar', status: :unprocessable_entity
       else
@@ -53,6 +52,7 @@ module Api
     def update_params
       set_order
       if @order.update(order_params)
+        OrderChannel.send_order_data_to_channel
         render status: :ok
       else
         render json: @order.errors, status: :unprocessable_entity 
