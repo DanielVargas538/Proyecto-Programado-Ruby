@@ -4,8 +4,10 @@ RSpec.describe User, type: :model do
   subject {
     described_class.new(
       name: 'Daniel',
-      role: 'Admin',
-      password: '123456789'
+      role: 'cook',
+      email: 'danielvargas@gmail.com',
+      password: '15425478',
+      password_confirmation: '15425478'
     )
   }
     it "is valid with valid attributes" do
@@ -21,6 +23,7 @@ RSpec.describe User, type: :model do
       subject.role = nil
       expect(subject).to_not be_valid
     end
+
     it "is not valid without a password" do
       subject.password = nil
       expect(subject).to_not be_valid

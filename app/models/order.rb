@@ -5,6 +5,8 @@ class Order < ApplicationRecord
     belongs_to :dish
 
     validates :state, presence: true
+    validates :date, presence: true
+    validates :quantity, presence: true
     
     def self.ransackable_attributes(auth_object = nil)
       %w[date state client_id dish_id]

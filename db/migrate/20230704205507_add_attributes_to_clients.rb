@@ -7,6 +7,6 @@ class AddAttributesToClients < ActiveRecord::Migration[7.0]
     add_column :clients, :canton, :string
     add_column :clients, :district, :string
     add_column :clients, :street, :string
-    add_column :clients, :locked, :boolean, default: true
+    add_column :clients, :locked, :boolean, default: false
   end
 end

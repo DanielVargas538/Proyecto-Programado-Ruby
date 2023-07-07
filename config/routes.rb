@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   end
 
   scope module: :api do
+    put '/orders/params/:id', to: 'orders#update_params'
+    
     get '/user_logs/params/:email/:password', to: 'user_logs#verify_params', email: /[^\/]+/
 
     get '/orders/params/:client_id', to: 'orders#order_client', name: /[^\/]+/ 

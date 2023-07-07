@@ -39,8 +39,8 @@ module Api
     end
 
     def verify_params
-      client = Client.find_by(email: params[:email])
-      if client.valid_password?(params[:password])
+      client = Client.find_by(email: params[:email]) 
+      if client.valid_password?(params[:password]) && client.locked === false
         render json: client.to_json , status: :ok
       else
         render plain: 'Cliente no encontrado', status: :not_found

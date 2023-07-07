@@ -36,13 +36,29 @@ module Api
 
     def update
       set_order
-      if @order.update(state: params[:state])
-        OrderChannel.send_order_data_to_channel
-        render json: @order, status: :ok
+      Rails.logger.info(@order.state)
+      if @order.state === 'delivered'
+        render json:'Error al actaulizar', status: :unprocessable_entity
       else
-        render json: @order.errors, status: :unprocessable_entity
+        if @order.update(state: params[:state]) 
+          OrderChannel.send_order_data_to_channel
+          render json: @order, status: :ok
+        else
+          render json: @order.errors, status: :unprocessable_entity
+        end
+      end
+    
+    end
+
+    def update_params
+      set_order
+      if @order.update(order_params)
+        render status: :ok
+      else
+        render json: @order.errors, status: :unprocessable_entity 
       end
     end
+    
 
     def destroy
       set_order
