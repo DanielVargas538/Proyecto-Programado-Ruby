@@ -14,6 +14,8 @@ gem 'httparty'
 gem "importmap-rails"
 gem "jbuilder"
 gem 'jquery-rails'
+gem "pg", "~> 1.1"
+gem "sqlite3", "~> 1.4"
 gem "puma", "~> 5.0"
 gem 'rack-cors'
 gem 'sass-rails'
@@ -43,9 +45,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
-end
-
-group :production do
-  gem "pg", "~> 1.1"
 end
 
