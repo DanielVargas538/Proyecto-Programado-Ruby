@@ -9,3 +9,4 @@ json.array! @clients do |client|
     json.phone client.phone
     json.email client.email
     json.password client.password
+end
