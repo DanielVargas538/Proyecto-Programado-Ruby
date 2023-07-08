@@ -140,7 +140,7 @@ User.create!(
 )
   
 User.create!(
-    email: 'jesush@gmail.com', password: '123456', password_confirmation: '123456' , name: 'Jesus', role: true
+    email: 'jesus@gmail.com', password: '123456', password_confirmation: '123456' , name: 'Jesus', role: true
 )
   
 User.create!(
@@ -185,29 +185,29 @@ User.create!(
 )
   
 
-Order.create(date: DateTime.new(2023, 7, 8, 8, 30), client_id: 1, dish_id: 1, quantity: 1)
+Order.create(date: Time.zone.now, client_id: 1, dish_id: 1, quantity: 1)
 
-Order.create(date: DateTime.new(2023, 7, 8, 8, 35), client_id: 2, dish_id: 2, quantity: 2)
+Order.create(date: Time.zone.now, client_id: 2, dish_id: 2, quantity: 2)
 
-Order.create(date: DateTime.new(2023, 7, 8, 7, 50), client_id: 3, dish_id: 3, quantity: 4)
+Order.create(date: Time.zone.now, client_id: 3, dish_id: 3, quantity: 4)
 
-Order.create(date: DateTime.new(2023, 7, 8, 8, 15), client_id: 4, dish_id: 4, quantity: 1)
+Order.create(date: Time.zone.now, client_id: 4, dish_id: 4, quantity: 1)
 
-Order.create(date: DateTime.new(2023, 7, 8, 8, 0), client_id: 5, dish_id: 5, quantity: 3)
+Order.create(date: Time.zone.now, client_id: 5, dish_id: 5, quantity: 3)
 
-Order.create(date: DateTime.new(2023, 7, 8, 8, 5), client_id: 6, dish_id: 4, quantity: 2)
+Order.create(date: Time.zone.now, client_id: 6, dish_id: 4, quantity: 2)
 
-Order.create(date: DateTime.new(2023, 7, 8, 7, 45), client_id: 7, dish_id: 7, quantity: 5)
+Order.create(date: Time.zone.now, client_id: 7, dish_id: 7, quantity: 5)
 
-Order.create(date: DateTime.new(2023, 7, 8, 8, 5), client_id: 8, dish_id: 8, quantity: 2)
+Order.create(date: Time.zone.now, client_id: 8, dish_id: 8, quantity: 2)
 
-Order.create(date: DateTime.new(2023, 7, 8, 8, 10), client_id: 9, dish_id: 9, quantity: 1)
+Order.create(date: Time.zone.now, client_id: 9, dish_id: 9, quantity: 1)
 
-Order.create(date: DateTime.new(2023, 7, 8, 8, 35), client_id: 10, dish_id: 8, quantity: 1)
+Order.create(date: Time.zone.now, client_id: 10, dish_id: 8, quantity: 1)
 
-Order.create(date: DateTime.new(2023, 7, 8, 9, 0), client_id: 1, dish_id: 1, quantity: 6)
+Order.create(date: Time.zone.now, client_id: 1, dish_id: 1, quantity: 6)
 
-Order.create(date: DateTime.new(2023, 7, 8, 8, 15), client_id: 1, dish_id: 2, quantity: 3)
+Order.create(date: Time.zone.now, client_id: 1, dish_id: 2, quantity: 3)
 
 
 
